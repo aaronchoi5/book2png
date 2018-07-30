@@ -4,28 +4,30 @@
     <title>book2png</title>
     <link rel="stylesheet" href="book2png.css">
 </head>
-<div class="flex-container">
-    <a href=# class="butt">Creatures</a>
-    <a href=# class="butt">Neutral</a>
-    <a href=# class="butt">Fire</a>
-    <a href=# class="butt">Water</a>
-    <a href=# class="butt">Earth</a>
-    <a href=# class="butt">Air</a>
-    <a href=# class="butt">Items</a>
-    <a href=# class="butt">Weapons</a>
-    <a href=# class="butt">Armor</a>
-    <a href=# class="butt">Tools</a>
-    <a href=# class="butt">Scrolls</a>
-</div>
-<div class="flex-container">
-	<a href=# class="butt">Spells</a>
-    <a href=# class="butt">Instant</a>
-    <a href=# class="butt">Multi</a>
-    <a href=# class="butt">Enchant</a>
-    <a href=# class="butt">Multi</a>
-    <a href=# class="butt">Global</a>
-    <input type="text" placeholder="Search..">
 
-</div>
+<body>
+    <div class="flex-container">
+        <a href=# class="butt">Creatures</a>
+        <a href=# class="butt">Neutral</a>
+        <a href=# class="butt">Fire</a>
+        <a href=# class="butt">Water</a>
+        <a href=# class="butt">Earth</a>
+        <a href=# class="butt">Air</a>
+        <a href=# class="butt">Items</a>
+        <a href=# class="butt">Weapons</a>
+        <a href=# class="butt">Armor</a>
+        <a href=# class="butt">Tools</a>
+        <a href=# class="butt">Scrolls</a>
+    </div>
+    <div class="flex-container">
+        <a href=# class="butt">Spells</a>
+        <a href=# class="butt">Instant</a>
+        <a href=# class="butt">Multi-Instant</a>
+        <a href=# class="butt">Enchant</a>
+        <a href=# class="butt">Multi-Enchant</a>
+        <a href=# class="butt">Global</a>
+        <input type="search" placeholder="Search..">
+    </div>
+</body>
 
 </html>

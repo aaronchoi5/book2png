@@ -1,5 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:700italic,400,400italic,700);
-/* CSS Button */
+body{
+	background-image: url("card.jpg");
+}
 .flex-container{
 	display:flex;
 	margin-top: 10px
