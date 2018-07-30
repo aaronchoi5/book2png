@@ -24,6 +24,7 @@
     <a href=# class="butt">Enchant</a>
     <a href=# class="butt">Multi</a>
     <a href=# class="butt">Global</a>
+    <input type="text" placeholder="Search..">
 
 </div>
 
