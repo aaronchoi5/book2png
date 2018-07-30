@@ -1,0 +1,341 @@
+﻿/* Googleフォント */
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+
+/* BookEntry.htm CSS */
+body{
+	font-family: 'Noto Sans JP', sans-serif;
+	font-size: 100%;
+	background-color:#f5f8fa;
+}
+button{
+	padding:0px;
+}
+div{
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+}
+a{
+	color:#0084B4;
+	text-decoration: none;
+	margin-top : 2px;
+	margin-left : 4px;
+	margin-right : 0px;
+	margin-bottom : 0px;
+}
+i{
+	margin-right:2px;
+}
+div#base{
+	background-color:#FEFEFE;
+	position : absolute;
+	top:0px;
+	left:0px;
+	width:1165px;
+	height:662px;
+	z-index:10;
+}
+/* 機能ボタン */
+div#menu{
+	display: flex;
+	justify-content:flex-start;
+	align-content:flex-start;
+	position : absolute;
+	top:0px;
+	left:0px;
+	width:1165px;
+	height:34px;
+	padding-top:1px;
+	background-color:#E5F2F7;
+}
+div#menuex{
+	display: flex;
+	justify-content:flex-end;
+	align-content:flex-start;
+	position : absolute;
+	top:0px;
+	left:834px;
+	width:329px;
+	height:34px;
+	padding-top:1px;
+	background-color:#E5F2F7;
+}
+/* 検索ボタン */
+div#tab{
+	display: flex;
+	flex-wrap:wrap;
+	justify-content:flex-start;
+	align-content:flex-start;
+	position : absolute;
+	top:34px;
+	left:0px;
+	width:832px;
+	height:66px;
+}
+input.tab{
+	font-size:14px;
+	line-height:24px;
+	height:32px;
+	width:364px;
+	padding:4px;
+	margin: 0px 2px 1px 0px;
+	border:solid 1px #888;
+}
+input.ex{
+	font-size:14px;
+	line-height:24px;
+	height:32px;
+	width:187px;
+	padding:4px;
+	margin: 0px 2px 1px 0px;
+	border:solid 1px #888;
+}
+button.tabbtn{
+	display:inline-block;
+	font-size:14px;
+	line-height:24px;
+	height:32px;
+	width:59px;
+	margin: 0px 2px 1px 0px;
+	border:solid 1px #111111;
+}
+button.tabbtnT{
+	font-family:'Noto Sans JP', sans-serif;
+	font-weight:700;
+	width:120px;
+	color:#ffffff;
+	background-color:#0084B4;
+	margin: 0px 2px 1px 0px;
+}
+button.tabbtnP{
+	font-family:'Noto Sans JP', sans-serif;
+	font-weight:700;
+	width:120px;
+	color:#ffffff;
+	background:linear-gradient(to bottom, #c30019, #79000f);
+	margin: 0px 2px 1px 0px;
+}
+button.tabbtnR{
+	font-family:'Noto Sans JP', sans-serif;
+	font-weight:700;
+	width:120px;
+	color:#ffffff;
+	background-color:#0f9d58;
+	margin: 0px 2px 1px 0px;
+}
+button.tabbtnD{
+	font-family:'Noto Sans JP', sans-serif;
+	font-weight:700;
+	width:120px;
+	color:#ffffff;
+	background-color:#7289DA;
+	margin: 0px 2px 1px 0px;
+}
+button.tabbtnA{
+	width:120px;
+	margin: 0px 2px 1px 0px;
+}
+button.tabbtnE{
+	background-color:#999999;
+}
+button.ex{
+	font-family:'Noto Sans JP', sans-serif;
+	display:inline-block;
+	font-size:12px;
+	line-height:24px;
+	height:32px;
+	width:48px;
+	margin: 0px 2px 1px 0px;
+	border:solid 1px #111111;
+}
+button.post{
+	display:inline-block;
+	font-family:'Noto Sans JP', sans-serif;
+	font-weight:500;
+	font-size:14px;
+	line-height:24px;
+	height:32px;
+	width:59px;
+	margin: 0px 2px 1px 0px;
+	color:#ffffff;
+	background-color:#BB0000;
+	border:solid 1px #111111;
+}
+/* CardList */
+div#cardlist_frame{
+	position : absolute;
+	top:100px;
+	left:0px;
+	width:830px;
+	height:560px;
+	background-color:#fff;
+	border:1px solid #666666;
+}
+div#cardlist{
+	display: flex;
+	flex-wrap:wrap;
+	justify-content:flex-start;
+	align-content:flex-start;
+	width:830px;
+	height:560px;
+	overflow:auto;
+}
+/* Card Button */
+div.card{
+	display: flex;
+	flex-wrap:wrap;
+	justify-content:flex-start;
+	align-content:flex-start;
+	background-size:contain;
+	height:97px;
+	width:77px;
+	margin:2px;
+}
+div.card div.cname{
+	order:1;
+	height:30px;
+	width:75px;
+	font-size:9px;
+	color:#FFFFFF;
+	background-color: rgba(0,0,0,0.4);
+	padding: 1px 0px 0px 2px;
+}
+div.card div.ability{
+	order:2;
+	height:63px;
+	width:50px;
+	display:flex;
+	flex-direction:column;
+	justify-content:flex-end;
+}
+div.card div.ability div{
+	font-family:'Noto Sans JP', sans-serif;
+	font-size:10px;
+	line-height:14px;
+	height:14px;
+	width:50px;
+	color:#ffffff;
+	background-color: rgba(0,0,0,0.6);
+}
+div.card div.count{
+	order:3;
+	font-family:'Noto Sans JP', sans-serif;
+	font-weight:700;
+	font-size:32px;
+	margin-top:25px;
+	height:38px;
+	width:24px;
+	text-align:right;
+	color:#FFFFFF;
+	text-shadow:-2px 0px 0 #000, 2px 0px 0 #000, 0px 2px 0 #000, 0px -2px 0 #000;
+}
+/* Book */
+div#book_frame{
+	position : absolute;
+	top:34px;
+	left:834px;
+	width:329px;
+	height:626px;
+	background-color:#fff;
+	border:1px solid #666666;
+	z-index:10;
+}
+div#bookline{
+	display: flex;
+	flex-wrap:wrap;
+	flex-direction: column;
+	width:329px;
+	height:626px;
+	overflow:auto;
+}
+/* LIST */
+div.cardline{
+	font-size:14px;
+	text-align:left;
+	height:22px;
+	width:160px;
+	color:#FFFFFF;
+	margin: 1px 0px 0px 1px;
+	border:solid 1px #111111;
+	text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+div.bookline{
+	font-size:14px;
+	text-align:left;
+	height:22px;
+	width:298px;
+	color:#FFFFFF;
+	margin: 1px 0px 0px 1px;
+	border:solid 1px #111111;
+	text-shadow:-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+	background-size:contain;
+}
+div.btnCN{
+	background-color: #cccccc;
+}
+div.btnCF{
+	background-color: #880000;
+}
+div.btnCA{
+	background-color:#000088;
+}
+div.btnCE{
+	background-color:#008800
+}
+div.btnCW{
+	background-color:#CC6600;
+}
+div.btnI{
+	background-color:#666666;
+}
+div.btnS{
+	background-color:#880088;
+}
+/* 出力ワーク */
+div#tweetbase{
+	display:none;
+	background-color:rgba(32,32,32,0.50);
+	position : absolute;
+	top:34px;
+	left:0px;
+	width:1165px;
+	height:628px;
+	z-index:20;
+}
+div#tweetframe{
+	font-family:'Noto Sans JP', sans-serif;
+	font-weight:700;
+	font-size:14px;
+	color:#0084B4;
+	background-color:#E5F2F7;
+	position : absolute;
+	display: flex;
+	flex-flow: column wrap;
+	justify-content:space-around;
+	align-content:center;
+	align-items:center;
+	top:243px;
+	left:340px;
+	width:485px;
+	height:150px;
+	padding:8px;
+	border-radius:6px;
+}
+a#deckurl{
+	color:#cccccc;
+}
+textarea{
+	resize: none;
+	font-family:'Noto Sans JP', sans-serif;
+	font-weight:700;
+	font-size:14px;
+	padding:8px;
+}
+/* ワーク */
+div#workground{
+	display:none;
+	position : absolute;
+	top:700px;
+	left:0px;
+}

@@ -1,0 +1,59 @@
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>book2png</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/gif">
+	<link rel='stylesheet' type='text/css' href='font-awesome.css'>
+	<link rel="stylesheet" type="text/css" charset="utf-8" href="index.css">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/pubnub-3.js"></script>
+	<script type="text/javascript" src="js/data.js"></script>
+	<script type="text/javascript" src="js/pubnub.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+</head>
+<body>
+	<div id="base">
+		<div id="menu">
+			<button class="tabbtn tabbtnT" onclick="CreateBookImage()"><i class="fa fa-twitter" aria-hidden="true"></i>&#12484;&#12452;&#12540;&#12488;&#12377;&#12427;</button>
+			<button class="tabbtn tabbtnP" onclick="PostPosse()">&#12522;&#12508;&#12523;&#12488;&#12509;&#12483;&#12475;</button>
+			<a href='https://twitter.com/search?q=%23book2png&src=typd'><i class="fa fa-twitter" aria-hidden="true"></i><img src>#book2png</a>
+		</div>
+		<div id="tab">
+			<button class="tabbtn tabbtnA" onclick="DispCardlist('C')">Creatures</button>
+			<button class="tabbtn" onclick="DispCardlist('CN')">N</button>
+			<button class="tabbtn" onclick="DispCardlist('CF')">R</button>
+			<button class="tabbtn" onclick="DispCardlist('CA')">B</button>
+			<button class="tabbtn" onclick="DispCardlist('CE')">G</button>
+			<button class="tabbtn" onclick="DispCardlist('CW')">Y</button>
+			<button class="tabbtn tabbtnA" onclick="DispCardlist('I')">Items</button>
+			<button class="tabbtn" onclick="DispCardlist('IP')">W</button>
+			<button class="tabbtn" onclick="DispCardlist('IO')">A</button>
+			<button class="tabbtn" onclick="DispCardlist('IT')">T</button>
+			<button class="tabbtn" onclick="DispCardlist('IR')">S</button>
+			<button class="tabbtn tabbtnA" onclick="DispCardlist('S')">Spells</button>
+			<button class="tabbtn" onclick="DispCardlist('SG')">SF</button>
+			<button class="tabbtn" onclick="DispCardlist('SL')">MF</button>
+			<button class="tabbtn" onclick="DispCardlist('SX')">SE</button>
+			<button class="tabbtn" onclick="DispCardlist('SY')">ME</button>
+			<button class="tabbtn" onclick="DispCardlist('SZ')">W</button>
+			<input class="tab" id="txtsearch" type="text" onInput="DispSearch();" onKeydown="ClearSearch();" placeholder="keyword search - space separated">
+		</div>
+		<div id="cardlist_frame"><div id="cardlist"></div></div>
+		<div id="book_frame"><div id="bookline"></div></div>
+	</div>
+	<div id="tweetbase">
+		<div id="tweetframe">
+			<div>
+				<textarea id="txttweet" cols="50" rows="3" maxlength="100" placeholder="Tweet strings"></textarea>
+			</div>
+			<div><a href="" onclick="deckurl(); return false;" id="deckurl">URL&#36861;&#21152;</a> #book2png #&#12459;&#12523;&#12489;&#12475;&#12503;&#12488;&#12522;&#12508;&#12523;&#12488;</div>
+			<div>
+				<button class="tabbtn tabbtnT" onclick="Tweet()">&#12484;&#12452;&#12540;&#12488;</button>
+			</div>
+		</div>
+	</div>
+	<div id="workground">
+		<canvas id="cvsbook" width="480" height="800"></canvas>
+	</div>
+</BODY>
+</HTML>

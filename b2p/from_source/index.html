@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Culdcept Central - book2png Deck Builder for Culdcept Revolt</title>
+	<link rel="shortcut icon" href="http://www.culdceptcentral.com/templates/jsn_tendo_pro/favicon.ico" type="image/gif">
+	<link rel='stylesheet' type='text/css' href='font-awesome.css'>
+	<link rel="stylesheet" type="text/css" charset="utf-8" href="index.css">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/pubnub-3.js"></script>
+	<script type="text/javascript" src="js/data.js"></script>
+	<script type="text/javascript" src="js/pubnub.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+</head>
+<body>
+	<div id="base">
+		<div id="menu">
+			<button class="tabbtn tabbtnT" onclick="CreateBookImage()">Tweet</button>
+			<!-- <button class="tabbtn tabbtnP" onclick="PostPosse()">Revolt Posse</button> -->
+			<a href="https://twitter.com/search?q=%23book2png&amp;src=typd"><img src="" style="">#book2png</a>
+		</div>
+		<div id="tab">
+			<button class="tabbtn tabbtnA" onclick="DispCardlist('C')">Creatures</button>
+			<button class="tabbtn" onclick="DispCardlist('CN')"><img src="../icons/neutral.png" alt="Neutral"></button>
+			<button class="tabbtn" onclick="DispCardlist('CF')"><img src="../icons/fire.png" alt="Fire"></button>
+			<button class="tabbtn" onclick="DispCardlist('CA')"><img src="../icons/water.png" alt="Water"></button>
+			<button class="tabbtn" onclick="DispCardlist('CE')"><img src="../icons/earth.png" alt="Earth"></button>
+			<button class="tabbtn" onclick="DispCardlist('CW')"><img src="../icons/air.png" alt="Air"></button>
+			<button class="tabbtn tabbtnA" onclick="DispCardlist('I')">Items</button>
+			<button class="tabbtn" onclick="DispCardlist('IP')"><img src="../icons/weapon.png" alt="Weapon"></button>
+			<button class="tabbtn" onclick="DispCardlist('IO')"><img src="../icons/armor.png" alt="Armor"></button>
+			<button class="tabbtn" onclick="DispCardlist('IT')"><img src="../icons/tool.png" alt="Tool"></button>
+			<button class="tabbtn" onclick="DispCardlist('IR')"><img src="../icons/scroll.png" alt="Scroll"></button>
+			<button class="tabbtn tabbtnA" onclick="DispCardlist('S')">Spells</button>
+			<button class="tabbtn" onclick="DispCardlist('SG')"><img src="../icons/sflash.png" alt="Instant"></button>
+			<button class="tabbtn" onclick="DispCardlist('SL')"><img src="../icons/mflash.png" alt="Multi-Instant"></button>
+			<button class="tabbtn" onclick="DispCardlist('SX')"><img src="../icons/senchant.png" alt="Enchant"></button>
+			<button class="tabbtn" onclick="DispCardlist('SY')"><img src="../icons/menchant.png" alt="Multi-Enchant"></button>
+			<button class="tabbtn" onclick="DispCardlist('SZ')"><img src="../icons/world.png" alt="Global"></button>
+			<input class="tab" id="txtsearch" type="text" onInput="DispSearch();" onKeydown="ClearSearch();" placeholder="keyword search - space separated">
+		</div>
+		<div id="cardlist_frame"><div id="cardlist"></div></div>
+		<div id="book_frame"><div id="bookline"></div></div>
+	</div>
+	<div id="tweetbase">
+		<div id="tweetframe">
+			<div>
+				<textarea id="txttweet" cols="50" rows="3" maxlength="100" placeholder="Tweet strings"></textarea>
+			</div>
+			<div><a href="" onclick="deckurl(); return false;" id="deckurl">add URL</a> #book2png #CuldceptRevolt</div>
+			<div>
+				<button class="tabbtn tabbtnT" onclick="Tweet()">Tweet</button>
+			</div>
+		</div>
+	</div>
+	<div id="workground">
+		<canvas id="cvsbook" width="480" height="800"></canvas>
+	</div>
+</BODY>
+</HTML>

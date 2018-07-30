@@ -1,0 +1,504 @@
+<html lang="ja"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<title>book2png</title>
+	<link rel="shortcut icon" href="http://www.culdceptcentral.com/templates/jsn_tendo_pro/favicon.ico" type="image/gif">
+	<link rel="stylesheet" type="text/css" href="files/font-awesome.css">
+	<link rel="stylesheet" type="text/css" charset="utf-8" href="files/index.css">
+	<script type="text/javascript" src="files/jquery.js"></script>
+	<script type="text/javascript" src="files/pubnub-3.js"></script>
+	<script type="text/javascript" src="files/data.js"></script>
+	<script type="text/javascript" src="files/pubnub.js"></script>
+	<script type="text/javascript" src="files/index.js"></script>
+</head>
+<body>
+	<div id="base">
+		<div id="menu">
+			<button class="tabbtn tabbtnT" onclick="CreateBookImage()"><i class="fa fa-twitter" aria-hidden="true"></i>to Twitter</button>
+			<!-- <button class="tabbtn tabbtnP" onclick="PostPosse()">Revolt Posse</button> -->
+			<a href="https://twitter.com/search?q=%23book2png&amp;src=typd"><i class="fa fa-twitter" aria-hidden="true"></i><img src="" style="">#book2png</a>
+		</div>
+		<div id="tab">
+			<button class="tabbtn tabbtnA" onclick="DispCardlist('C')">Creatures</button>
+			<button class="tabbtn" onclick="DispCardlist('CN')">N</button>
+			<button class="tabbtn" onclick="DispCardlist('CF')">R</button>
+			<button class="tabbtn" onclick="DispCardlist('CA')">B</button>
+			<button class="tabbtn" onclick="DispCardlist('CE')">G</button>
+			<button class="tabbtn" onclick="DispCardlist('CW')">Y</button>
+			<button class="tabbtn tabbtnA" onclick="DispCardlist('I')">Items</button>
+			<button class="tabbtn" onclick="DispCardlist('IP')">W</button>
+			<button class="tabbtn" onclick="DispCardlist('IO')">A</button>
+			<button class="tabbtn" onclick="DispCardlist('IT')">T</button>
+			<button class="tabbtn" onclick="DispCardlist('IR')">S</button>
+			<button class="tabbtn tabbtnA" onclick="DispCardlist('S')">Spells</button>
+			<button class="tabbtn" onclick="DispCardlist('SG')">SF</button>
+			<button class="tabbtn" onclick="DispCardlist('SL')">MF</button>
+			<button class="tabbtn" onclick="DispCardlist('SX')">SE</button>
+			<button class="tabbtn" onclick="DispCardlist('SY')">ME</button>
+			<button class="tabbtn" onclick="DispCardlist('SZ')">W</button>
+			<input class="tab" id="txtsearch" oninput="DispSearch();" onkeydown="ClearSearch();" placeholder="keyword search - space separated" type="text">
+		</div>
+		<div id="cardlist_frame"><div id="cardlist">
+<div class="card" style="background-image: url(&quot;images/puppydragon.jpg&quot;);" id="A000"><div class="cname" id="cnameA000">Evo&nbsp;Card</div><div class="count" id="countA000"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/archchemic.jpg&quot;);" id="A001"><div class="cname" id="cnameA001">Archchemic</div><div class="count" id="countA001"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/archbishop.jpg&quot;);" id="A002"><div class="cname" id="cnameA002">Archbishop</div><div class="count" id="countA002"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/armoreddragon.jpg&quot;);" id="A003"><div class="cname" id="cnameA003">Armored&nbsp;Dragon</div><div class="count" id="countA003"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/ironmonger.jpg&quot;);" id="A004"><div class="cname" id="cnameA004">Ironmonger</div><div class="count" id="countA004"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/ogrelord.jpg&quot;);" id="A005"><div class="cname" id="cnameA005">Ogre&nbsp;Lord</div><div class="count" id="countA005"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/groundgear.jpg&quot;);" id="A006"><div class="cname" id="cnameA006">Ground&nbsp;Gear</div><div class="count" id="countA006"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/creepingcoin.jpg&quot;);" id="A007"><div class="cname" id="cnameA007">Creeping&nbsp;Coin</div><div class="count" id="countA007"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/greatfossil.jpg&quot;);" id="A008"><div class="cname" id="cnameA008">Great&nbsp;Fossil</div><div class="count" id="countA008"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/clockworkowl.jpg&quot;);" id="A009"><div class="cname" id="cnameA009">Clockwork&nbsp;Owl</div><div class="count" id="countA009"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/goldentotem.jpg&quot;);" id="A010"><div class="cname" id="cnameA010">ゴールドトーテム</div><div class="count" id="countA010"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/goblin.jpg&quot;);" id="A011"><div class="cname" id="cnameA011">ゴブリン</div><div class="count" id="countA011"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/samurai.jpg&quot;);" id="A012"><div class="cname" id="cnameA012">サムライ</div><div class="count" id="countA012"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/thief.jpg&quot;);" id="A013"><div class="cname" id="cnameA013">シーフ</div><div class="count" id="countA013"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/shapeshifter.jpg&quot;);" id="A014"><div class="cname" id="cnameA014">シェイプシフター</div><div class="count" id="countA014"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/shadowgeist.jpg&quot;);" id="A015"><div class="cname" id="cnameA015">シャドウガイスト</div><div class="count" id="countA015"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/skygear.jpg&quot;);" id="A016"><div class="cname" id="cnameA016">スカイギア</div><div class="count" id="countA016"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/skeleton.jpg&quot;);" id="A017"><div class="cname" id="cnameA017">スケルトン</div><div class="count" id="countA017"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/statue.jpg&quot;);" id="A018"><div class="cname" id="cnameA018">スタチュー</div><div class="count" id="countA018"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/steamgear.jpg&quot;);" id="A019"><div class="cname" id="cnameA019">スチームギア</div><div class="count" id="countA019"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/stonejizo.jpg&quot;);" id="A020"><div class="cname" id="cnameA020">ストーンジゾウ</div><div class="count" id="countA020"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/saint.jpg&quot;);" id="A021"><div class="cname" id="cnameA021">セイント</div><div class="count" id="countA021"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/tyrannosaurus.jpg&quot;);" id="A022"><div class="cname" id="cnameA022">ティラノサウルス</div><div class="count" id="countA022"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/decoy.jpg&quot;);" id="A023"><div class="cname" id="cnameA023">デコイ</div><div class="count" id="countA023"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/trojanhorse.jpg&quot;);" id="A024"><div class="cname" id="cnameA024">トロージャンホース</div><div class="count" id="countA024"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/nilvana.jpg&quot;);" id="A025"><div class="cname" id="cnameA025">ニル＝バーナ</div><div class="count" id="countA025"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/ninja.jpg&quot;);" id="A026"><div class="cname" id="cnameA026">ニンジャ</div><div class="count" id="countA026"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/halfling.jpg&quot;);" id="A027"><div class="cname" id="cnameA027">ハーフリング</div><div class="count" id="countA027"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/hidebehind.jpg&quot;);" id="A028"><div class="cname" id="cnameA028">ハイドビハインド</div><div class="count" id="countA028"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/baldanders.jpg&quot;);" id="A029"><div class="cname" id="cnameA029">バルダンダース</div><div class="count" id="countA029"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/bandit.jpg&quot;);" id="A030"><div class="cname" id="cnameA030">バンディット</div><div class="count" id="countA030"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/beastgear.jpg&quot;);" id="A031"><div class="cname" id="cnameA031">ビーストギア</div><div class="count" id="countA031"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/fighter.jpg&quot;);" id="A032"><div class="cname" id="cnameA032">ファイター</div><div class="count" id="countA032"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/borgess.jpg&quot;);" id="A033"><div class="cname" id="cnameA033">ボージェス</div><div class="count" id="countA033"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/migoal.jpg&quot;);" id="A034"><div class="cname" id="cnameA034">ミゴール</div><div class="count" id="countA034"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/livingarmor.jpg&quot;);" id="A035"><div class="cname" id="cnameA035">リビングアーマー</div><div class="count" id="countA035"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/livingamulet.jpg&quot;);" id="A036"><div class="cname" id="cnameA036">リビングアムル</div><div class="count" id="countA036"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/livingglove.jpg&quot;);" id="A037"><div class="cname" id="cnameA037">リビンググローブ</div><div class="count" id="countA037"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/livinghelmet.jpg&quot;);" id="A038"><div class="cname" id="cnameA038">リビングヘルム</div><div class="count" id="countA038"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/livingbomb.jpg&quot;);" id="A039"><div class="cname" id="cnameA039">リビングボム</div><div class="count" id="countA039"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/lunatichare.jpg&quot;);" id="A040"><div class="cname" id="cnameA040">ルナティックヘア</div><div class="count" id="countA040"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/legendarypharos.jpg&quot;);" id="A041"><div class="cname" id="cnameA041">レジェンドファロス</div><div class="count" id="countA041"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/redcap.jpg&quot;);" id="A042"><div class="cname" id="cnameA042">レッドキャップ</div><div class="count" id="countA042"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/rocktitan.jpg&quot;);" id="A043"><div class="cname" id="cnameA043">ロックタイタン</div><div class="count" id="countA043"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/wonderwall.jpg&quot;);" id="A044"><div class="cname" id="cnameA044">ワンダーウォール</div><div class="count" id="countA044"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/ammon.jpg&quot;);" id="B001"><div class="cname" id="cnameB001">アモン</div><div class="count" id="countB001"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/angrymob.jpg&quot;);" id="B002"><div class="cname" id="cnameB002">アングリーモブ</div><div class="count" id="countB002"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/uriel.jpg&quot;);" id="B003"><div class="cname" id="cnameB003">ウリエル</div><div class="count" id="countB003"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/oldwillow.jpg&quot;);" id="B004"><div class="cname" id="cnameB004">オールドウィロウ</div><div class="count" id="countB004"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/gascloud.jpg&quot;);" id="B005"><div class="cname" id="cnameB005">ガスクラウド</div><div class="count" id="countB005"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/chimera.jpg&quot;);" id="B006"><div class="cname" id="cnameB006">キメラ</div><div class="count" id="countB006"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/kingvaran.jpg&quot;);" id="B007"><div class="cname" id="cnameB007">キングバラン</div><div class="count" id="countB007"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/gladiator.jpg&quot;);" id="B008"><div class="cname" id="cnameB008">グラディエーター</div><div class="count" id="countB008"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/creepingflame.jpg&quot;);" id="B009"><div class="cname" id="cnameB009">クリーピングフレイム</div><div class="count" id="countB009"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/caitsith.jpg&quot;);" id="B010"><div class="cname" id="cnameB010">ケットシー</div><div class="count" id="countB010"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/conjurer.jpg&quot;);" id="B011"><div class="cname" id="cnameB011">コンジャラー</div><div class="count" id="countB011"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/sulfurousballoon.jpg&quot;);" id="B012"><div class="cname" id="cnameB012">サルファバルーン</div><div class="count" id="countB012"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/shieldmaiden.jpg&quot;);" id="B013"><div class="cname" id="cnameB013">シールドメイデン</div><div class="count" id="countB013"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/generalguan.jpg&quot;);" id="B014"><div class="cname" id="cnameB014">ジェネラル＝カン</div><div class="count" id="countB014"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/sigurd.jpg&quot;);" id="B015"><div class="cname" id="cnameB015">シグルド</div><div class="count" id="countB015"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/sharazad.jpg&quot;);" id="B016"><div class="cname" id="cnameB016">シャラザード</div><div class="count" id="countB016"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/shocker.jpg&quot;);" id="B017"><div class="cname" id="cnameB017">ショッカー</div><div class="count" id="countB017"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/tiamat.jpg&quot;);" id="B018"><div class="cname" id="cnameB018">ティアマト</div><div class="count" id="countB018"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/deathscythe.jpg&quot;);" id="B019"><div class="cname" id="cnameB019">デスサイズ</div><div class="count" id="countB019"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/deathleech.jpg&quot;);" id="B020"><div class="cname" id="cnameB020">デスリーチ</div><div class="count" id="countB020"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/deadwarlord.jpg&quot;);" id="B021"><div class="cname" id="cnameB021">デッドウォーロード</div><div class="count" id="countB021"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/doomdevourer.jpg&quot;);" id="B022"><div class="cname" id="cnameB022">ドゥームデボラー</div><div class="count" id="countB022"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/domovikha.jpg&quot;);" id="B023"><div class="cname" id="cnameB023">ドモビー</div><div class="count" id="countB023"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/knight-errant.jpg&quot;);" id="B024"><div class="cname" id="cnameB024">ナイトエラント</div><div class="count" id="countB024"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/nebiros.jpg&quot;);" id="B025"><div class="cname" id="cnameB025">ネビロス</div><div class="count" id="countB025"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/ba-al.jpg&quot;);" id="B026"><div class="cname" id="cnameB026">バ＝アル</div><div class="count" id="countB026"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/birdmaiden.jpg&quot;);" id="B027"><div class="cname" id="cnameB027">バードメイデン</div><div class="count" id="countB027"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/burnacle.jpg&quot;);" id="B028"><div class="cname" id="cnameB028">バーナックル</div><div class="count" id="countB028"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/burningtitan.jpg&quot;);" id="B029"><div class="cname" id="cnameB029">バーンタイタン</div><div class="count" id="countB029"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/hivequeen.jpg&quot;);" id="B030"><div class="cname" id="cnameB030">ハイブクイーン</div><div class="count" id="countB030"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/hiveworker.jpg&quot;);" id="B031"><div class="cname" id="cnameB031">ハイブワーカー</div><div class="count" id="countB031"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/pyroculus.jpg&quot;);" id="B032"><div class="cname" id="cnameB032">パイロクルス</div><div class="count" id="countB032"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/pyromancer.jpg&quot;);" id="B033"><div class="cname" id="cnameB033">パイロマンサー</div><div class="count" id="countB033"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/valkyria.jpg&quot;);" id="B034"><div class="cname" id="cnameB034">バルキリー</div><div class="count" id="countB034"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/python.jpg&quot;);" id="B035"><div class="cname" id="cnameB035">ピュトン</div><div class="count" id="countB035"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/firedrake.jpg&quot;);" id="B036"><div class="cname" id="cnameB036">ファイアードレイク</div><div class="count" id="countB036"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/firebeak.jpg&quot;);" id="B037"><div class="cname" id="cnameB037">ファイアービーク</div><div class="count" id="countB037"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/fay.jpg&quot;);" id="B038"><div class="cname" id="cnameB038">フェイ</div><div class="count" id="countB038"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/phoenix.jpg&quot;);" id="B039"><div class="cname" id="cnameB039">フェニックス</div><div class="count" id="countB039"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/flameduke.jpg&quot;);" id="B040"><div class="cname" id="cnameB040">フレイムデューク</div><div class="count" id="countB040"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/phlogiston.jpg&quot;);" id="B041"><div class="cname" id="cnameB041">フロギストン</div><div class="count" id="countB041"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/hellpyron.jpg&quot;);" id="B042"><div class="cname" id="cnameB042">ヘルパイロン</div><div class="count" id="countB042"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/volcanicdragon.jpg&quot;);" id="B043"><div class="cname" id="cnameB043">ボルカニックドラゴン</div><div class="count" id="countB043"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/minotaur.jpg&quot;);" id="B044"><div class="cname" id="cnameB044">ミノタウロス</div><div class="count" id="countB044"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/mushussu.jpg&quot;);" id="B045"><div class="cname" id="cnameB045">ムシュフシュ</div><div class="count" id="countB045"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/lavakin.jpg&quot;);" id="B046"><div class="cname" id="cnameB046">ラーバキン</div><div class="count" id="countB046"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/redogre.jpg&quot;);" id="B047"><div class="cname" id="cnameB047">レッドオーガ</div><div class="count" id="countB047"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/lonebeast.jpg&quot;);" id="B048"><div class="cname" id="cnameB048">ローンビースト</div><div class="count" id="countB048"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/gianteel.jpg&quot;);" id="C001"><div class="cname" id="cnameC001">Ｇ・イール</div><div class="count" id="countC001"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/giantnautilus.jpg&quot;);" id="C002"><div class="cname" id="cnameC002">Ｇ・ノーチラス</div><div class="count" id="countC002"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/wallofice.jpg&quot;);" id="C003"><div class="cname" id="cnameC003">アイスウォール</div><div class="count" id="countC003"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/aquaduke.jpg&quot;);" id="C004"><div class="cname" id="cnameC004">アクアデューク</div><div class="count" id="countC004"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/aquahorn.jpg&quot;);" id="C005"><div class="cname" id="cnameC005">アクアホーン</div><div class="count" id="countC005"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/aqualing.jpg&quot;);" id="C006"><div class="cname" id="cnameC006">アクアリング</div><div class="count" id="countC006"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/apsaras.jpg&quot;);" id="C007"><div class="cname" id="cnameC007">アプサラス</div><div class="count" id="countC007"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/amazon.jpg&quot;);" id="C008"><div class="cname" id="cnameC008">アマゾン</div><div class="count" id="countC008"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/alp.jpg&quot;);" id="C009"><div class="cname" id="cnameC009">アルプ</div><div class="count" id="countC009"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/undine.jpg&quot;);" id="C010"><div class="cname" id="cnameC010">アンダイン</div><div class="count" id="countC010"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/amphibianwarrior.jpg&quot;);" id="C011"><div class="cname" id="cnameC011">アンフィビアン</div><div class="count" id="countC011"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/yeti.jpg&quot;);" id="C012"><div class="cname" id="cnameC012">イエティ</div><div class="count" id="countC012"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/id.jpg&quot;);" id="C013"><div class="cname" id="cnameC013">イド</div><div class="count" id="countC013"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/echinoderm.jpg&quot;);" id="C014"><div class="cname" id="cnameC014">エキノダーム</div><div class="count" id="countC014"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/otohime.jpg&quot;);" id="C015"><div class="cname" id="cnameC015">オトヒメ</div><div class="count" id="countC015"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/odontotyrannus.jpg&quot;);" id="C016"><div class="cname" id="cnameC016">オドントティラヌス</div><div class="count" id="countC016"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/kaiserpenguin.jpg&quot;);" id="C017"><div class="cname" id="cnameC017">カイザーペンギン</div><div class="count" id="countC017"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/kawahime.jpg&quot;);" id="C018"><div class="cname" id="cnameC018">カワヒメ</div><div class="count" id="countC018"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/chironex.jpg&quot;);" id="C019"><div class="cname" id="cnameC019">キロネックス</div><div class="count" id="countC019"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/kingtortoise.jpg&quot;);" id="C020"><div class="cname" id="cnameC020">キングトータス</div><div class="count" id="countC020"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/glueyslug.jpg&quot;);" id="C021"><div class="cname" id="cnameC021">グルイースラッグ</div><div class="count" id="countC021"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/kelpie.jpg&quot;);" id="C022"><div class="cname" id="cnameC022">ケルピー</div><div class="count" id="countC022"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/ghostship.jpg&quot;);" id="C023"><div class="cname" id="cnameC023">ゴーストシップ</div><div class="count" id="countC023"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/seabonze.jpg&quot;);" id="C024"><div class="cname" id="cnameC024">シーボンズ</div><div class="count" id="countC024"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/scylla.jpg&quot;);" id="C025"><div class="cname" id="cnameC025">スキュラ</div><div class="count" id="countC025"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/sludgetitan.jpg&quot;);" id="C026"><div class="cname" id="cnameC026">スラッジタイタン</div><div class="count" id="countC026"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/swampspawn.jpg&quot;);" id="C027"><div class="cname" id="cnameC027">スワンプスポーン</div><div class="count" id="countC027"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/gelatinouswall.jpg&quot;);" id="C028"><div class="cname" id="cnameC028">ゼラチンウォール</div><div class="count" id="countC028"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/deep-seadragon.jpg&quot;);" id="C029"><div class="cname" id="cnameC029">ディープシードラゴン</div><div class="count" id="countC029"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/tentacles.jpg&quot;);" id="C030"><div class="cname" id="cnameC030">テンタクルズ</div><div class="count" id="countC030"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/triton.jpg&quot;);" id="C031"><div class="cname" id="cnameC031">トリトン</div><div class="count" id="countC031"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/nessie.jpg&quot;);" id="C032"><div class="cname" id="cnameC032">ネッシー</div><div class="count" id="countC032"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/hyde.jpg&quot;);" id="C033"><div class="cname" id="cnameC033">ハイド</div><div class="count" id="countC033"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/bahamut.jpg&quot;);" id="C034"><div class="cname" id="cnameC034">バハムート</div><div class="count" id="countC034"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/vigilante.jpg&quot;);" id="C035"><div class="cname" id="cnameC035">ビジランテ</div><div class="count" id="countC035"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/hippocampus.jpg&quot;);" id="C036"><div class="cname" id="cnameC036">ヒッポカンパス</div><div class="count" id="countC036"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/fate.jpg&quot;);" id="C037"><div class="cname" id="cnameC037">フェイト</div><div class="count" id="countC037"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/bloodypudding.jpg&quot;);" id="C038"><div class="cname" id="cnameC038">ブラッドプリン</div><div class="count" id="countC038"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/blueogre.jpg&quot;);" id="C039"><div class="cname" id="cnameC039">ブルーオーガ</div><div class="count" id="countC039"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/hellgrammite.jpg&quot;);" id="C040"><div class="cname" id="cnameC040">ヘルグラマイト</div><div class="count" id="countC040"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/mycoron.jpg&quot;);" id="C041"><div class="cname" id="cnameC041">マイコロン</div><div class="count" id="countC041"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/makara.jpg&quot;);" id="C042"><div class="cname" id="cnameC042">マカラ</div><div class="count" id="countC042"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/mistwing.jpg&quot;);" id="C043"><div class="cname" id="cnameC043">ミストウィング</div><div class="count" id="countC043"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/megalodon.jpg&quot;);" id="C044"><div class="cname" id="cnameC044">メガロドン</div><div class="count" id="countC044"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/rahab.jpg&quot;);" id="C045"><div class="cname" id="cnameC045">ラハブ</div><div class="count" id="countC045"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/lizardman.jpg&quot;);" id="C046"><div class="cname" id="cnameC046">リザードマン</div><div class="count" id="countC046"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/lilith.jpg&quot;);" id="C047"><div class="cname" id="cnameC047">リリス</div><div class="count" id="countC047"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/runeadept.jpg&quot;);" id="C048"><div class="cname" id="cnameC048">ルーンアデプト</div><div class="count" id="countC048"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/earthspirit.jpg&quot;);" id="D001"><div class="cname" id="cnameD001">アーススピリット</div><div class="count" id="countD001"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/unnameable.jpg&quot;);" id="D002"><div class="cname" id="cnameD002">アネイマブル</div><div class="count" id="countD002"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/woodfolk.jpg&quot;);" id="D003"><div class="cname" id="cnameD003">ウッドフォーク</div><div class="count" id="countD003"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/odradek.jpg&quot;);" id="D004"><div class="cname" id="cnameD004">オドラデク</div><div class="count" id="countD004"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/gargoyle.jpg&quot;);" id="D005"><div class="cname" id="cnameD005">ガーゴイル</div><div class="count" id="countD005"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/cactuswall.jpg&quot;);" id="D006"><div class="cname" id="cnameD006">カクタスウォール</div><div class="count" id="countD006"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/gigantherium.jpg&quot;);" id="D007"><div class="cname" id="cnameD007">ギガンテリウム</div><div class="count" id="countD007"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/captaincock.jpg&quot;);" id="D008"><div class="cname" id="cnameD008">キャプテンコック</div><div class="count" id="countD008"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/goobaqueen.jpg&quot;);" id="D009"><div class="cname" id="cnameD009">グーバクイーン</div><div class="count" id="countD009"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/greenogre.jpg&quot;);" id="D010"><div class="cname" id="cnameD010">グリーンオーガ</div><div class="count" id="countD010"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/grimalkin.jpg&quot;);" id="D011"><div class="cname" id="cnameD011">グリマルキン</div><div class="count" id="countD011"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/greattusker.jpg&quot;);" id="D012"><div class="cname" id="cnameD012">グレートタスカー</div><div class="count" id="countD012"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/glowhorn.jpg&quot;);" id="D013"><div class="cname" id="cnameD013">グロウホーン</div><div class="count" id="countD013"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/coatlicue.jpg&quot;);" id="D014"><div class="cname" id="cnameD014">コアトリクエ</div><div class="count" id="countD014"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/cockatrice.jpg&quot;);" id="D015"><div class="cname" id="cnameD015">コカトリス</div><div class="count" id="countD015"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/sakuya.jpg&quot;);" id="D016"><div class="cname" id="cnameD016">サクヤ</div><div class="count" id="countD016"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/jackalope.jpg&quot;);" id="D017"><div class="cname" id="cnameD017">ジャッカロープ</div><div class="count" id="countD017"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/shankrubber.jpg&quot;);" id="D018"><div class="cname" id="cnameD018">シャンクラバー</div><div class="count" id="countD018"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/sylvanduchess.jpg&quot;);" id="D019"><div class="cname" id="cnameD019">シルバンダッチェス</div><div class="count" id="countD019"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/screamer.jpg&quot;);" id="D020"><div class="cname" id="cnameD020">スクリーマー</div><div class="count" id="countD020"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/squirrine.jpg&quot;);" id="D021"><div class="cname" id="cnameD021">スクワリン</div><div class="count" id="countD021"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/wallofstone.jpg&quot;);" id="D022"><div class="cname" id="cnameD022">ストーンウォール</div><div class="count" id="countD022"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/spittingcobra.jpg&quot;);" id="D023"><div class="cname" id="cnameD023">スピットコブラ</div><div class="count" id="countD023"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/sproutling.jpg&quot;);" id="D024"><div class="cname" id="cnameD024">スプラウトリング</div><div class="count" id="countD024"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/sage.jpg&quot;);" id="D025"><div class="cname" id="cnameD025">セージ</div><div class="count" id="countD025"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/tigerweta.jpg&quot;);" id="D026"><div class="cname" id="cnameD026">タイガーウェタ</div><div class="count" id="countD026"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/duskdweller.jpg&quot;);" id="D027"><div class="cname" id="cnameD027">ダスクドウェラー</div><div class="count" id="countD027"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/dragonzombie.jpg&quot;);" id="D028"><div class="cname" id="cnameD028">ドラゴンゾンビ</div><div class="count" id="countD028"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/dryad.jpg&quot;);" id="D029"><div class="cname" id="cnameD029">ドリアード</div><div class="count" id="countD029"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/dwarvenminer.jpg&quot;);" id="D030"><div class="cname" id="cnameD030">ドワーフマイナー</div><div class="count" id="countD030"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/hardrockdragon.jpg&quot;);" id="D031"><div class="cname" id="cnameD031">ハードロックドラゴン</div><div class="count" id="countD031"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/barong.jpg&quot;);" id="D032"><div class="cname" id="cnameD032">バロン</div><div class="count" id="countD032"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/healer.jpg&quot;);" id="D033"><div class="cname" id="cnameD033">ヒーラー</div><div class="count" id="countD033"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/pixie.jpg&quot;);" id="D034"><div class="cname" id="cnameD034">ピクシー</div><div class="count" id="countD034"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/blackknight.jpg&quot;);" id="D035"><div class="cname" id="cnameD035">ブラックナイト</div><div class="count" id="countD035"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/brancharmy.jpg&quot;);" id="D036"><div class="cname" id="cnameD036">ブランチアーミー</div><div class="count" id="countD036"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/brontides.jpg&quot;);" id="D037"><div class="cname" id="cnameD037">ブロンティーデス</div><div class="count" id="countD037"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/mudman.jpg&quot;);" id="D038"><div class="cname" id="cnameD038">マッドマン</div><div class="count" id="countD038"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/mummy.jpg&quot;);" id="D039"><div class="cname" id="cnameD039">マミー</div><div class="count" id="countD039"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/mosstitan.jpg&quot;);" id="D040"><div class="cname" id="cnameD040">モスタイタン</div><div class="count" id="countD040"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/mormo.jpg&quot;);" id="D041"><div class="cname" id="cnameD041">モルモ</div><div class="count" id="countD041"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/jormungandr.jpg&quot;);" id="D042"><div class="cname" id="cnameD042">ヨルムンガンド</div><div class="count" id="countD042"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/landurchin.jpg&quot;);" id="D043"><div class="cname" id="cnameD043">ランドアーチン</div><div class="count" id="countD043"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/lichenoid.jpg&quot;);" id="D044"><div class="cname" id="cnameD044">リチェノイド</div><div class="count" id="countD044"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/leshy.jpg&quot;);" id="D045"><div class="cname" id="cnameD045">レーシィ</div><div class="count" id="countD045"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/rockshell.jpg&quot;);" id="D046"><div class="cname" id="cnameD046">ロックシェル</div><div class="count" id="countD046"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/rocktroll.jpg&quot;);" id="D047"><div class="cname" id="cnameD047">ロックトロル</div><div class="count" id="countD047"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/werebear.jpg&quot;);" id="D048"><div class="cname" id="cnameD048">ワーベア</div><div class="count" id="countD048"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/yellowogre.jpg&quot;);" id="E001"><div class="cname" id="cnameE001">イエローオーガ</div><div class="count" id="countE001"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/witch.jpg&quot;);" id="E002"><div class="cname" id="cnameE002">ウィッチ</div><div class="count" id="countE002"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/aeroduchess.jpg&quot;);" id="E003"><div class="cname" id="cnameE003">エアロダッチェス</div><div class="count" id="countE003"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/elvenarcher.jpg&quot;);" id="E004"><div class="cname" id="cnameE004">エルフアーチャー</div><div class="count" id="countE004"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/enchantress.jpg&quot;);" id="E005"><div class="cname" id="cnameE005">エンチャントレス</div><div class="count" id="countE005"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/caladrius.jpg&quot;);" id="E006"><div class="cname" id="cnameE006">カラドリウス</div><div class="count" id="countE006"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/garuda.jpg&quot;);" id="E007"><div class="cname" id="cnameE007">ガルーダ</div><div class="count" id="countE007"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/kirin.jpg&quot;);" id="E008"><div class="cname" id="cnameE008">キリン</div><div class="count" id="countE008"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/cusith.jpg&quot;);" id="E009"><div class="cname" id="cnameE009">クー・シー</div><div class="count" id="countE009"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/cloudgizmo.jpg&quot;);" id="E010"><div class="cname" id="cnameE010">クラウドギズモ</div><div class="count" id="countE010"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/griffon.jpg&quot;);" id="E011"><div class="cname" id="cnameE011">グリフォン</div><div class="count" id="countE011"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/greatnimbus.jpg&quot;);" id="E012"><div class="cname" id="cnameE012">グレートニンバス</div><div class="count" id="countE012"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/gremlin.jpg&quot;);" id="E013"><div class="cname" id="cnameE013">グレムリン</div><div class="count" id="countE013"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/centaur.jpg&quot;);" id="E014"><div class="cname" id="cnameE014">ケンタウロス</div><div class="count" id="countE014"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/cornfolk.jpg&quot;);" id="E015"><div class="cname" id="cnameE015">コーンフォーク</div><div class="count" id="countE015"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/serpentfly.jpg&quot;);" id="E016"><div class="cname" id="cnameE016">サーペントフライ</div><div class="count" id="countE016"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/samhain.jpg&quot;);" id="E017"><div class="cname" id="cnameE017">サムハイン</div><div class="count" id="countE017"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/thunderspawn.jpg&quot;);" id="E018"><div class="cname" id="cnameE018">サンダースポーン</div><div class="count" id="countE018"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/sylph.jpg&quot;);" id="E019"><div class="cname" id="cnameE019">シルフ</div><div class="count" id="countE019"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/scolopendra.jpg&quot;);" id="E020"><div class="cname" id="cnameE020">スカラペンドラ</div><div class="count" id="countE020"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/spectre.jpg&quot;);" id="E021"><div class="cname" id="cnameE021">スペクター</div><div class="count" id="countE021"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/sleipnir.jpg&quot;);" id="E022"><div class="cname" id="cnameE022">スレイプニル</div><div class="count" id="countE022"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/soulcollector.jpg&quot;);" id="E023"><div class="cname" id="cnameE023">ソウルコレクター</div><div class="count" id="countE023"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/swordprincess.jpg&quot;);" id="E024"><div class="cname" id="cnameE024">ソードプリンセス</div><div class="count" id="countE024"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/dhampir.jpg&quot;);" id="E025"><div class="cname" id="cnameE025">ダンピール</div><div class="count" id="countE025"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/tetrarm.jpg&quot;);" id="E026"><div class="cname" id="cnameE026">テトラーム</div><div class="count" id="countE026"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/devastator.jpg&quot;);" id="E027"><div class="cname" id="cnameE027">デバステイター</div><div class="count" id="countE027"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/dunetitan.jpg&quot;);" id="E028"><div class="cname" id="cnameE028">デューンタイタン</div><div class="count" id="countE028"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/typhon.jpg&quot;);" id="E029"><div class="cname" id="cnameE029">テュポーン</div><div class="count" id="countE029"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/tornado.jpg&quot;);" id="E030"><div class="cname" id="cnameE030">トルネード</div><div class="count" id="countE030"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/treasureraider.jpg&quot;);" id="E031"><div class="cname" id="cnameE031">トレジャーレイダー</div><div class="count" id="countE031"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/nike.jpg&quot;);" id="E032"><div class="cname" id="cnameE032">ナイキー</div><div class="count" id="countE032"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/knight.jpg&quot;);" id="E033"><div class="cname" id="cnameE033">ナイト</div><div class="count" id="countE033"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/nightmare.jpg&quot;);" id="E034"><div class="cname" id="cnameE034">ナイトメア</div><div class="count" id="countE034"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/powdereater.jpg&quot;);" id="E035"><div class="cname" id="cnameE035">パウダーイーター</div><div class="count" id="countE035"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/patronus.jpg&quot;);" id="E036"><div class="cname" id="cnameE036">パトロナス</div><div class="count" id="countE036"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/breezespirit.jpg&quot;);" id="E037"><div class="cname" id="cnameE037">ブリーズスピリット</div><div class="count" id="countE037"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/blitzraven.jpg&quot;);" id="E038"><div class="cname" id="cnameE038">ブリッツレイブン</div><div class="count" id="countE038"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/pulgasari.jpg&quot;);" id="E039"><div class="cname" id="cnameE039">プルガサリ</div><div class="count" id="countE039"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/holyllama.jpg&quot;);" id="E040"><div class="cname" id="cnameE040">ホーリーラマ</div><div class="count" id="countE040"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/martialmonk.jpg&quot;);" id="E041"><div class="cname" id="cnameE041">マーシャルモンク</div><div class="count" id="countE041"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/madharlequin.jpg&quot;);" id="E042"><div class="cname" id="cnameE042">マッドハーレクイン</div><div class="count" id="countE042"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/yowie.jpg&quot;);" id="E043"><div class="cname" id="cnameE043">ヨーウィ</div><div class="count" id="countE043"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/lightningdragon.jpg&quot;);" id="E044"><div class="cname" id="cnameE044">ライトニングドラゴン</div><div class="count" id="countE044"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/rokh.jpg&quot;);" id="E045"><div class="cname" id="cnameE045">ルフ</div><div class="count" id="countE045"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/lemures.jpg&quot;);" id="E046"><div class="cname" id="cnameE046">レムレース</div><div class="count" id="countE046"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/lordofbane.jpg&quot;);" id="E047"><div class="cname" id="cnameE047">ロードオブベイン</div><div class="count" id="countE047"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/wyvern.jpg&quot;);" id="E048"><div class="cname" id="cnameE048">ワイバーン</div><div class="count" id="countE048"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/argentkey.jpg&quot;);" id="G001"><div class="cname" id="cnameG001">アージェントキー</div><div class="count" id="countG001"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/armet.jpg&quot;);" id="G002"><div class="cname" id="cnameG002">アーメット</div><div class="count" id="countG002"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/angrymask.jpg&quot;);" id="G003"><div class="cname" id="cnameG003">アングリーマスク</div><div class="count" id="countG003"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/eaglerapier.jpg&quot;);" id="G004"><div class="cname" id="cnameG004">イーグルレイピア</div><div class="count" id="countG004"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/warlocksdisk.jpg&quot;);" id="G005"><div class="cname" id="cnameG005">ウォーロックディスク</div><div class="count" id="countG005"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/eternalmail.jpg&quot;);" id="G006"><div class="cname" id="cnameG006">エターナルメイル</div><div class="count" id="countG006"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/angelcape.jpg&quot;);" id="G007"><div class="cname" id="cnameG007">エンジェルケープ</div><div class="count" id="countG007"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/aurastrike.jpg&quot;);" id="G008"><div class="cname" id="cnameG008">オーラストライク</div><div class="count" id="countG008"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/catapult.jpg&quot;);" id="G009"><div class="cname" id="cnameG009">カタパルト</div><div class="count" id="countG009"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/claymore.jpg&quot;);" id="G010"><div class="cname" id="cnameG010">クレイモア</div><div class="count" id="countG010"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/gremlinseye.jpg&quot;);" id="G011"><div class="cname" id="cnameG011">グレムリンアイ</div><div class="count" id="countG011"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/goldengoose.jpg&quot;);" id="G012"><div class="cname" id="cnameG012">ゴールドグース</div><div class="count" id="countG012"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/goldenhammer.jpg&quot;);" id="G013"><div class="cname" id="cnameG013">ゴールドハンマー</div><div class="count" id="countG013"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/ringofthesuccubus.jpg&quot;);" id="G014"><div class="cname" id="cnameG014">サキュバスリング</div><div class="count" id="countG014"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/clawofshade.jpg&quot;);" id="G015"><div class="cname" id="cnameG015">シェイドクロー</div><div class="count" id="countG015"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/shadowblaze.jpg&quot;);" id="G016"><div class="cname" id="cnameG016">シャドウブレイズ</div><div class="count" id="countG016"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/silverplow.jpg&quot;);" id="G017"><div class="cname" id="cnameG017">シルバープロウ</div><div class="count" id="countG017"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/squidmantle.jpg&quot;);" id="G018"><div class="cname" id="cnameG018">スクイドマントル</div><div class="count" id="countG018"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/scalearmor.jpg&quot;);" id="G019"><div class="cname" id="cnameG019">スケールアーマー</div><div class="count" id="countG019"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/stormarmor.jpg&quot;);" id="G020"><div class="cname" id="cnameG020">ストームアーマー</div><div class="count" id="countG020"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/stormcauser.jpg&quot;);" id="G021"><div class="cname" id="cnameG021">ストームコーザー</div><div class="count" id="countG021"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/stormshield.jpg&quot;);" id="G022"><div class="cname" id="cnameG022">ストームシールド</div><div class="count" id="countG022"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/stormspear.jpg&quot;);" id="G023"><div class="cname" id="cnameG023">ストームスピア</div><div class="count" id="countG023"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/stormhalberd.jpg&quot;);" id="G024"><div class="cname" id="cnameG024">ストームハルバード</div><div class="count" id="countG024"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/sparkball.jpg&quot;);" id="G025"><div class="cname" id="cnameG025">スパークボール</div><div class="count" id="countG025"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/spikedshield.jpg&quot;);" id="G026"><div class="cname" id="cnameG026">スパイクシールド</div><div class="count" id="countG026"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/sphereshield.jpg&quot;);" id="G027"><div class="cname" id="cnameG027">スフィアシールド</div><div class="count" id="countG027"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/spectresrobe.jpg&quot;);" id="G028"><div class="cname" id="cnameG028">スペクターローブ</div><div class="count" id="countG028"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/sling.jpg&quot;);" id="G029"><div class="cname" id="cnameG029">スリング</div><div class="count" id="countG029"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/gelatinousarmor.jpg&quot;);" id="G030"><div class="cname" id="cnameG030">ゼラチンアーマー</div><div class="count" id="countG030"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/soulray.jpg&quot;);" id="G031"><div class="cname" id="cnameG031">ソウルレイ</div><div class="count" id="countG031"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/turquoiseamulet.jpg&quot;);" id="G032"><div class="cname" id="cnameG032">ターコイズアムル</div><div class="count" id="countG032"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/diamondarmor.jpg&quot;);" id="G033"><div class="cname" id="cnameG033">ダイヤアーマー</div><div class="count" id="countG033"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/chainmail.jpg&quot;);" id="G034"><div class="cname" id="cnameG034">チェインメイル</div><div class="count" id="countG034"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/chainsaw.jpg&quot;);" id="G035"><div class="cname" id="cnameG035">チェーンソー</div><div class="count" id="countG035"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/chillingblast.jpg&quot;);" id="G036"><div class="cname" id="cnameG036">チリングブラスト</div><div class="count" id="countG036"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/twinspike.jpg&quot;);" id="G037"><div class="cname" id="cnameG037">ツインスパイク</div><div class="count" id="countG037"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/tearinghalo.jpg&quot;);" id="G038"><div class="cname" id="cnameG038">ティアリングハロー</div><div class="count" id="countG038"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/tombstone.jpg&quot;);" id="G039"><div class="cname" id="cnameG039">トゥームストーン</div><div class="count" id="countG039"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/topazamulet.jpg&quot;);" id="G040"><div class="cname" id="cnameG040">トパーズアムル</div><div class="count" id="countG040"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/trident.jpg&quot;);" id="G041"><div class="cname" id="cnameG041">トライデント</div><div class="count" id="countG041"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/dragonorb.jpg&quot;);" id="G042"><div class="cname" id="cnameG042">ドラゴンオーブ</div><div class="count" id="countG042"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/drilllance.jpg&quot;);" id="G043"><div class="cname" id="cnameG043">ドリルランス</div><div class="count" id="countG043"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/tonfa.jpg&quot;);" id="G044"><div class="cname" id="cnameG044">トンファ</div><div class="count" id="countG044"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/napalmarrow.jpg&quot;);" id="G045"><div class="cname" id="cnameG045">ナパームアロー</div><div class="count" id="countG045"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/neutralcloak.jpg&quot;);" id="G046"><div class="cname" id="cnameG046">ニュートラルクローク</div><div class="count" id="countG046"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/necroscarab.jpg&quot;);" id="G047"><div class="cname" id="cnameG047">ネクロスカラベ</div><div class="count" id="countG047"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/necroplasma.jpg&quot;);" id="G048"><div class="cname" id="cnameG048">ネクロプラズマ</div><div class="count" id="countG048"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/burningheart.jpg&quot;);" id="G049"><div class="cname" id="cnameG049">バーニングハート</div><div class="count" id="countG049"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/burningrod.jpg&quot;);" id="G050"><div class="cname" id="cnameG050">バーニングロッド</div><div class="count" id="countG050"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/bindingwhip.jpg&quot;);" id="G051"><div class="cname" id="cnameG051">バインドウィップ</div><div class="count" id="countG051"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/batteringram.jpg&quot;);" id="G052"><div class="cname" id="cnameG052">バタリングラム</div><div class="count" id="countG052"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/buckler.jpg&quot;);" id="G053"><div class="cname" id="cnameG053">バックラー</div><div class="count" id="countG053"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/battleaxe.jpg&quot;);" id="G054"><div class="cname" id="cnameG054">バトルアックス</div><div class="count" id="countG054"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/boomerang.jpg&quot;);" id="G055"><div class="cname" id="cnameG055">ブーメラン</div><div class="count" id="countG055"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/forceanklet.jpg&quot;);" id="G056"><div class="cname" id="cnameG056">フォースアンクレット</div><div class="count" id="countG056"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/swordofpluck.jpg&quot;);" id="G057"><div class="cname" id="cnameG057">プラックソード</div><div class="count" id="countG057"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/prismaticwand.jpg&quot;);" id="G058"><div class="cname" id="cnameG058">プリズムワンド</div><div class="count" id="countG058"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/platemail.jpg&quot;);" id="G059"><div class="cname" id="cnameG059">プレートメイル</div><div class="count" id="countG059"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/petrifystone.jpg&quot;);" id="G060"><div class="cname" id="cnameG060">ペトリフストーン</div><div class="count" id="countG060"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/vorpalsword.jpg&quot;);" id="G061"><div class="cname" id="cnameG061">ボーパルソード</div><div class="count" id="countG061"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/magmaarmor.jpg&quot;);" id="G062"><div class="cname" id="cnameG062">マグマアーマー</div><div class="count" id="countG062"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/magmashield.jpg&quot;);" id="G063"><div class="cname" id="cnameG063">マグマシールド</div><div class="count" id="countG063"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/magmahammer.jpg&quot;);" id="G064"><div class="cname" id="cnameG064">マグマハンマー</div><div class="count" id="countG064"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/magmaflail.jpg&quot;);" id="G065"><div class="cname" id="cnameG065">マグマフレイル</div><div class="count" id="countG065"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/magicshield.jpg&quot;);" id="G066"><div class="cname" id="cnameG066">マジックシールド</div><div class="count" id="countG066"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/mirrorhoplon.jpg&quot;);" id="G067"><div class="cname" id="cnameG067">ミラーホプロン</div><div class="count" id="countG067"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/moonscimitar.jpg&quot;);" id="G068"><div class="cname" id="cnameG068">ムーンシミター</div><div class="count" id="countG068"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/murasame.jpg&quot;);" id="G069"><div class="cname" id="cnameG069">ムラサメ</div><div class="count" id="countG069"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/magussmirror.jpg&quot;);" id="G070"><div class="cname" id="cnameG070">メイガスミラー</div><div class="count" id="countG070"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/mace.jpg&quot;);" id="G071"><div class="cname" id="cnameG071">メイス</div><div class="count" id="countG071"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/ragdoll.jpg&quot;);" id="G072"><div class="cname" id="cnameG072">ラグドール</div><div class="count" id="countG072"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/reactivearmor.jpg&quot;);" id="G073"><div class="cname" id="cnameG073">リアクトアーマー</div><div class="count" id="countG073"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/longsword.jpg&quot;);" id="G074"><div class="cname" id="cnameG074">ロングソード</div><div class="count" id="countG074"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/wondercharm.jpg&quot;);" id="G075"><div class="cname" id="cnameG075">ワンダーチャーム</div><div class="count" id="countG075"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/earthshift.jpg&quot;);" id="H001"><div class="cname" id="cnameH001">アースシフト</div><div class="count" id="countH001"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/outrage.jpg&quot;);" id="H002"><div class="cname" id="cnameH002">アウトレイジ</div><div class="count" id="countH002"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/asteroid.jpg&quot;);" id="H003"><div class="cname" id="cnameH003">アステロイド</div><div class="count" id="countH003"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/assemblecards.jpg&quot;);" id="H004"><div class="cname" id="cnameH004">アセンブルカード</div><div class="count" id="countH004"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/alarm.jpg&quot;);" id="H005"><div class="cname" id="cnameH005">アラーム</div><div class="count" id="countH005"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/immobilize.jpg&quot;);" id="H006"><div class="cname" id="cnameH006">イモビライズ</div><div class="count" id="countH006"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/incineration.jpg&quot;);" id="H007"><div class="cname" id="cnameH007">インシネレート</div><div class="count" id="countH007"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/influence.jpg&quot;);" id="H008"><div class="cname" id="cnameH008">インフルエンス</div><div class="count" id="countH008"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/wasteworld.jpg&quot;);" id="H009"><div class="cname" id="cnameH009">ウェイストワールド</div><div class="count" id="countH009"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/watershift.jpg&quot;);" id="H010"><div class="cname" id="cnameH010">ウォーターシフト</div><div class="count" id="countH010"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/airshift.jpg&quot;);" id="H011"><div class="cname" id="cnameH011">エアーシフト</div><div class="count" id="countH011"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/exile.jpg&quot;);" id="H012"><div class="cname" id="cnameH012">エグザイル</div><div class="count" id="countH012"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/exchange.jpg&quot;);" id="H013"><div class="cname" id="cnameH013">エクスチェンジ</div><div class="count" id="countH013"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/escape.jpg&quot;);" id="H014"><div class="cname" id="cnameH014">エスケープ</div><div class="count" id="countH014"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/energyfield.jpg&quot;);" id="H015"><div class="cname" id="cnameH015">エナジーフィールド</div><div class="count" id="countH015"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/elementalwrath.jpg&quot;);" id="H016"><div class="cname" id="cnameH016">エレメンタルラス</div><div class="count" id="countH016"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/erosion.jpg&quot;);" id="H017"><div class="cname" id="cnameH017">エロージョン</div><div class="count" id="countH017"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/obliteration.jpg&quot;);" id="H018"><div class="cname" id="cnameH018">オブリタレート</div><div class="count" id="countH018"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/chaospanic.jpg&quot;);" id="H019"><div class="cname" id="cnameH019">カオスパニック</div><div class="count" id="countH019"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/gift.jpg&quot;);" id="H020"><div class="cname" id="cnameH020">ギフト</div><div class="count" id="countH020"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/quicksand.jpg&quot;);" id="H021"><div class="cname" id="cnameH021">クイックサンド</div><div class="count" id="countH021"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/quintessence.jpg&quot;);" id="H022"><div class="cname" id="cnameH022">クインテッセンス</div><div class="count" id="countH022"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/clusterburst.jpg&quot;);" id="H023"><div class="cname" id="cnameH023">クラスターバースト</div><div class="count" id="countH023"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/greed.jpg&quot;);" id="H024"><div class="cname" id="cnameH024">グリード</div><div class="count" id="countH024"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/clairvoyance.jpg&quot;);" id="H025"><div class="cname" id="cnameH025">クレアボヤンス</div><div class="count" id="countH025"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/growthbody.jpg&quot;);" id="H026"><div class="cname" id="cnameH026">グロースボディ</div><div class="count" id="countH026"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/quietude.jpg&quot;);" id="H027"><div class="cname" id="cnameH027">クワイエチュード</div><div class="count" id="countH027"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/goblinslair.jpg&quot;);" id="H028"><div class="cname" id="cnameH028">ゴブリンズレア</div><div class="count" id="countH028"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/suddenimpact.jpg&quot;);" id="H029"><div class="cname" id="cnameH029">サドンインパクト</div><div class="count" id="countH029"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/subsidence.jpg&quot;);" id="H030"><div class="cname" id="cnameH030">サブサイド</div><div class="count" id="countH030"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/thunderclap.jpg&quot;);" id="H031"><div class="cname" id="cnameH031">サンダークラップ</div><div class="count" id="countH031"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/senility.jpg&quot;);" id="H032"><div class="cname" id="cnameH032">シニリティ</div><div class="count" id="countH032"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/shininggeyser.jpg&quot;);" id="H033"><div class="cname" id="cnameH033">シャイニングガイザー</div><div class="count" id="countH033"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/shatter.jpg&quot;);" id="H034"><div class="cname" id="cnameH034">シャッター</div><div class="count" id="countH034"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/sigilofshrink.jpg&quot;);" id="H035"><div class="cname" id="cnameH035">シュリンクシジル</div><div class="count" id="countH035"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/jointworld.jpg&quot;);" id="H036"><div class="cname" id="cnameH036">ジョイントワールド</div><div class="count" id="countH036"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/insectswarm.jpg&quot;);" id="H037"><div class="cname" id="cnameH037">スウォーム</div><div class="count" id="countH037"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/squeeze.jpg&quot;);" id="H038"><div class="cname" id="cnameH038">スクイーズ</div><div class="count" id="countH038"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/stealgem.jpg&quot;);" id="H039"><div class="cname" id="cnameH039">スティールジェム</div><div class="count" id="countH039"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/stormshift.jpg&quot;);" id="H040"><div class="cname" id="cnameH040">ストームシフト</div><div class="count" id="countH040"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/stoneblast.jpg&quot;);" id="H041"><div class="cname" id="cnameH041">ストーンブラスト</div><div class="count" id="countH041"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/sneakhand.jpg&quot;);" id="H042"><div class="cname" id="cnameH042">スニークハンド</div><div class="count" id="countH042"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/spartoi.jpg&quot;);" id="H043"><div class="cname" id="cnameH043">スパルトイ</div><div class="count" id="countH043"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/speedpenalty.jpg&quot;);" id="H044"><div class="cname" id="cnameH044">スピードペナルティ</div><div class="count" id="countH044"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/spiritwalk.jpg&quot;);" id="H045"><div class="cname" id="cnameH045">スピリットウォーク</div><div class="count" id="countH045"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/thrustblow.jpg&quot;);" id="H046"><div class="cname" id="cnameH046">スラストブロウ</div><div class="count" id="countH046"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/theft.jpg&quot;);" id="H047"><div class="cname" id="cnameH047">セフト</div><div class="count" id="countH047"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/solidworld.jpg&quot;);" id="H048"><div class="cname" id="cnameH048">ソリッドワールド</div><div class="count" id="countH048"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/darkworld.jpg&quot;);" id="H049"><div class="cname" id="cnameH049">ダークワールド</div><div class="count" id="countH049"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/turntothewall.jpg&quot;);" id="H050"><div class="cname" id="cnameH050">ターンウォール</div><div class="count" id="countH050"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/tinyarmy.jpg&quot;);" id="H051"><div class="cname" id="cnameH051">タイニーアーミー</div><div class="count" id="countH051"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/chargingstep.jpg&quot;);" id="H052"><div class="cname" id="cnameH052">チャージステップ</div><div class="count" id="countH052"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/chariot.jpg&quot;);" id="H053"><div class="cname" id="cnameH053">チャリオット</div><div class="count" id="countH053"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/disaster.jpg&quot;);" id="H054"><div class="cname" id="cnameH054">ディザスター</div><div class="count" id="countH054"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/disease.jpg&quot;);" id="H055"><div class="cname" id="cnameH055">ディジーズ</div><div class="count" id="countH055"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/diselement.jpg&quot;);" id="H056"><div class="cname" id="cnameH056">ディスエレメント</div><div class="count" id="countH056"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/discord.jpg&quot;);" id="H057"><div class="cname" id="cnameH057">ディスコード</div><div class="count" id="countH057"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/tyranny.jpg&quot;);" id="H058"><div class="cname" id="cnameH058">ティラニー</div><div class="count" id="countH058"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/debility.jpg&quot;);" id="H059"><div class="cname" id="cnameH059">デビリティ</div><div class="count" id="countH059"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/temptation.jpg&quot;);" id="H060"><div class="cname" id="cnameH060">テンプテーション</div><div class="count" id="countH060"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/dominantgrowth.jpg&quot;);" id="H061"><div class="cname" id="cnameH061">ドミナントグロース</div><div class="count" id="countH061"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/dreamterrain.jpg&quot;);" id="H062"><div class="cname" id="cnameH062">ドリームテレイン</div><div class="count" id="countH062"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/sigilofdrain.jpg&quot;);" id="H063"><div class="cname" id="cnameH063">ドレインシジル</div><div class="count" id="countH063"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/drainmagic.jpg&quot;);" id="H064"><div class="cname" id="cnameH064">ドレインマジック</div><div class="count" id="countH064"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/naturalworld.jpg&quot;);" id="H065"><div class="cname" id="cnameH065">ナチュラルワールド</div><div class="count" id="countH065"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/burninghail.jpg&quot;);" id="H066"><div class="cname" id="cnameH066">バーニングヘイル</div><div class="count" id="countH066"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/vitality.jpg&quot;);" id="H067"><div class="cname" id="cnameH067">バイタリティ</div><div class="count" id="countH067"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/hyperactive.jpg&quot;);" id="H068"><div class="cname" id="cnameH068">ハイパーアクティブ</div><div class="count" id="countH068"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/bindingmist.jpg&quot;);" id="H069"><div class="cname" id="cnameH069">バインドミスト</div><div class="count" id="countH069"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/bountyhunt.jpg&quot;);" id="H070"><div class="cname" id="cnameH070">バウンティハント</div><div class="count" id="countH070"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/pacifism.jpg&quot;);" id="H071"><div class="cname" id="cnameH071">パシフィズム</div><div class="count" id="countH071"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/barrier.jpg&quot;);" id="H072"><div class="cname" id="cnameH072">バリアー</div><div class="count" id="countH072"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/peace.jpg&quot;);" id="H073"><div class="cname" id="cnameH073">ピース</div><div class="count" id="countH073"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/purify.jpg&quot;);" id="H074"><div class="cname" id="cnameH074">ピュアリファイ</div><div class="count" id="countH074"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/fireshift.jpg&quot;);" id="H075"><div class="cname" id="cnameH075">ファイアーシフト</div><div class="count" id="countH075"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/fatbody.jpg&quot;);" id="H076"><div class="cname" id="cnameH076">ファットボディ</div><div class="count" id="countH076"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/fear.jpg&quot;);" id="H077"><div class="cname" id="cnameH077">フィアー</div><div class="count" id="countH077"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/philosophy.jpg&quot;);" id="H078"><div class="cname" id="cnameH078">フィロソフィー</div><div class="count" id="countH078"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/foresight.jpg&quot;);" id="H079"><div class="cname" id="cnameH079">フォーサイト</div><div class="count" id="countH079"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/formportal.jpg&quot;);" id="H080"><div class="cname" id="cnameH080">フォームポータル</div><div class="count" id="countH080"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/fly.jpg&quot;);" id="H081"><div class="cname" id="cnameH081">フライ</div><div class="count" id="countH081"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/brightworld.jpg&quot;);" id="H082"><div class="cname" id="cnameH082">ブライトワールド</div><div class="count" id="countH082"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/fluxion.jpg&quot;);" id="H083"><div class="cname" id="cnameH083">フラクシオン</div><div class="count" id="countH083"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/blasttrap.jpg&quot;);" id="H084"><div class="cname" id="cnameH084">ブラストトラップ</div><div class="count" id="countH084"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/blackout.jpg&quot;);" id="H085"><div class="cname" id="cnameH085">ブラックアウト</div><div class="count" id="countH085"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/flatland.jpg&quot;);" id="H086"><div class="cname" id="cnameH086">フラットランド</div><div class="count" id="countH086"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/freezecyclone.jpg&quot;);" id="H087"><div class="cname" id="cnameH087">フリーズサイクロン</div><div class="count" id="countH087"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/plague.jpg&quot;);" id="H088"><div class="cname" id="cnameH088">プレイグ</div><div class="count" id="countH088"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/blazesplash.jpg&quot;);" id="H089"><div class="cname" id="cnameH089">ブレイズスプラッシュ</div><div class="count" id="countH089"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/sigiloffloat.jpg&quot;);" id="H090"><div class="cname" id="cnameH090">フロートシジル</div><div class="count" id="countH090"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/prophecy.jpg&quot;);" id="H091"><div class="cname" id="cnameH091">プロフェシー</div><div class="count" id="countH091"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/haste.jpg&quot;);" id="H092"><div class="cname" id="cnameH092">ヘイスト</div><div class="count" id="countH092"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/penalize.jpg&quot;);" id="H093"><div class="cname" id="cnameH093">ペナライズ</div><div class="count" id="countH093"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/poisonmind.jpg&quot;);" id="H094"><div class="cname" id="cnameH094">ポイズンマインド</div><div class="count" id="countH094"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/vortex.jpg&quot;);" id="H095"><div class="cname" id="cnameH095">ボーテックス</div><div class="count" id="countH095"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/windofhope.jpg&quot;);" id="H096"><div class="cname" id="cnameH096">ホープ</div><div class="count" id="countH096"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/homeground.jpg&quot;);" id="H097"><div class="cname" id="cnameH097">ホームグラウンド</div><div class="count" id="countH097"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/holybanishment.jpg&quot;);" id="H098"><div class="cname" id="cnameH098">ホーリーバニッシュ</div><div class="count" id="countH098"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/holyword1.jpg&quot;);" id="H099"><div class="cname" id="cnameH099">ホーリーワード１</div><div class="count" id="countH099"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/holyword3.jpg&quot;);" id="H100"><div class="cname" id="cnameH100">ホーリーワード３</div><div class="count" id="countH100"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/holyword6.jpg&quot;);" id="H101"><div class="cname" id="cnameH101">ホーリーワード６</div><div class="count" id="countH101"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/holyword8.jpg&quot;);" id="H102"><div class="cname" id="cnameH102">ホーリーワード８</div><div class="count" id="countH102"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/mercifulworld.jpg&quot;);" id="H103"><div class="cname" id="cnameH103">マーシフルワールド</div><div class="count" id="countH103"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/magmashift.jpg&quot;);" id="H104"><div class="cname" id="cnameH104">マグマシフト</div><div class="count" id="countH104"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/magicalleap.jpg&quot;);" id="H105"><div class="cname" id="cnameH105">マジカルリープ</div><div class="count" id="countH105"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/magicshelter.jpg&quot;);" id="H106"><div class="cname" id="cnameH106">マジックシェルター</div><div class="count" id="countH106"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/magicbolt.jpg&quot;);" id="H107"><div class="cname" id="cnameH107">マジックボルト</div><div class="count" id="countH107"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/massgrowth.jpg&quot;);" id="H108"><div class="cname" id="cnameH108">マスグロース</div><div class="count" id="countH108"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/massphantasm.jpg&quot;);" id="H109"><div class="cname" id="cnameH109">マスファンタズム</div><div class="count" id="countH109"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/manna.jpg&quot;);" id="H110"><div class="cname" id="cnameH110">マナ</div><div class="count" id="countH110"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/mistyworld.jpg&quot;);" id="H111"><div class="cname" id="cnameH111">ミスティワールド</div><div class="count" id="countH111"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/mirrorworld.jpg&quot;);" id="H112"><div class="cname" id="cnameH112">ミラーワールド</div><div class="count" id="countH112"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/miraclecall.jpg&quot;);" id="H113"><div class="cname" id="cnameH113">ミラクルコール</div><div class="count" id="countH113"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/metamorphosis.jpg&quot;);" id="H114"><div class="cname" id="cnameH114">メタモルフォシス</div><div class="count" id="countH114"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/metalform.jpg&quot;);" id="H115"><div class="cname" id="cnameH115">メタルフォーム</div><div class="count" id="countH115"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/uniformity.jpg&quot;);" id="H116"><div class="cname" id="cnameH116">ユニフォーミティ</div><div class="count" id="countH116"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/lifestream.jpg&quot;);" id="H117"><div class="cname" id="cnameH117">ライフストリーム</div><div class="count" id="countH117"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/lifeforce.jpg&quot;);" id="H118"><div class="cname" id="cnameH118">ライフフォース</div><div class="count" id="countH118"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/landtransfer.jpg&quot;);" id="H119"><div class="cname" id="cnameH119">ランドトランス</div><div class="count" id="countH119"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/landdrain.jpg&quot;);" id="H120"><div class="cname" id="cnameH120">ランドドレイン</div><div class="count" id="countH120"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/liquidform.jpg&quot;);" id="H121"><div class="cname" id="cnameH121">リキッドフォーム</div><div class="count" id="countH121"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/restore.jpg&quot;);" id="H122"><div class="cname" id="cnameH122">リストア</div><div class="count" id="countH122"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/revival.jpg&quot;);" id="H123"><div class="cname" id="cnameH123">リバイバル</div><div class="count" id="countH123"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/remission.jpg&quot;);" id="H124"><div class="cname" id="cnameH124">リミッション</div><div class="count" id="countH124"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/remoteswitch.jpg&quot;);" id="H125"><div class="cname" id="cnameH125">リモートスイッチ</div><div class="count" id="countH125"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/release.jpg&quot;);" id="H126"><div class="cname" id="cnameH126">リリース</div><div class="count" id="countH126"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/relief.jpg&quot;);" id="H127"><div class="cname" id="cnameH127">リリーフ</div><div class="count" id="countH127"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/reincarnation.jpg&quot;);" id="H128"><div class="cname" id="cnameH128">リンカネーション</div><div class="count" id="countH128"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/rayofpurge.jpg&quot;);" id="H129"><div class="cname" id="cnameH129">レイオブパージ</div><div class="count" id="countH129"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/rayoflaw.jpg&quot;);" id="H130"><div class="cname" id="cnameH130">レイオブロウ</div><div class="count" id="countH130"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/redivision.jpg&quot;);" id="H131"><div class="cname" id="cnameH131">レディビジョン</div><div class="count" id="countH131"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/longline.jpg&quot;);" id="H132"><div class="cname" id="cnameH132">ロングライン</div><div class="count" id="countH132"></div><div class="ability"></div></div>
+<div class="card" style="background-image: url(&quot;images/senseofwild.jpg&quot;);" id="H133"><div class="cname" id="cnameH133">ワイルドセンス</div><div class="count" id="countH133"></div><div class="ability"></div></div></div></div>
+		<div id="book_frame"><div id="bookline"></div></div>
+	</div>
+	<div id="tweetbase">
+		<div id="tweetframe">
+			<div>
+				<textarea id="txttweet" cols="50" rows="3" maxlength="100" placeholder="Tweet strings"></textarea>
+			</div>
+			<div><a href="" onclick="deckurl(); return false;" id="deckurl">URL追加</a> #book2png #CuldceptRevolt</div>
+			<div>
+				<button class="tabbtn tabbtnT" onclick="Tweet()">ツイート</button>
+			</div>
+		</div>
+	</div>
+	<div id="workground">
+		<canvas id="cvsbook" width="480" height="800"></canvas>
+	</div>
+
+</body></html>
