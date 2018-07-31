@@ -1,45 +1,49 @@
 var card_data = data;
 function addToBook(cardName)
 {
-
+	var bookArea = document.querySelector(".editBookArea");
+	var card = document.createElement('div')
+	card.style.width = "180px";
+	card.style.height = "45px";
+	card.style.backgroundColor = "white";
+	card.innerText = cardName;
+	card.style.border = " solid black"; 
+	bookArea.appendChild(card);
 }
 function selectAll()
 {
-	var selectionArea = document.querySelector("div.cardSelectionArea");
+	var selectionArea = document.querySelector(".cardSelectionArea");
 	for( let i = 0; i < card_data.length; i++)
 	{	
-		
-		var cardi = document.createElement('div')
-		cardi.style.width = "76px";
-		cardi.style.height = "97px";
-		cardi.style.margin = "2px";
-		if(card_data[i].type == "Creature" && card_data[i].rarity != "E")
-		{
-			var link = "./" + card_data[i].attribute.toLowerCase() + "/" + card_data[i].name.toLowerCase().replace(/[^a-z0-9+]+/gi, '') +".jpg";
-			cardi.style.backgroundImage += 'url(' + link + ')';
-			console.log(link);
-		}
-		if(card_data[i].type == "Creature" && card_data[i].rarity == "E")
-		{
-			var link = "./evo" + "/" + card_data[i].name.toLowerCase().replace(/[^a-z0-9+]+/gi, '') +".jpg";
-			cardi.style.backgroundImage += 'url(' + link + ')';
-			console.log(link);
-		}
-		else if(card_data[i].type == "Spell")
-		{
-			var link = "./spells/" + card_data[i].name.toLowerCase().replace(/[^a-z0-9+]+/gi, '') +".jpg";
-			cardi.style.backgroundImage += 'url(' + link + ')';
-		}
-		else if(card_data[i].type == "Item")
-		{
-			var link = "./items/" + card_data[i].name.toLowerCase().replace(/[^a-z0-9+]+/gi, '') +".jpg";
-			cardi.style.backgroundImage += 'url(' + link + ')';
-		}
+	const card = document.createElement('div');
+	card.classList.add("card");
+	const cardName = card_data[i].name.toLowerCase().replace(/[^a-z0-9+]+/gi, '');
+	let imageLocation = "";
 
-		cardi.style.backgroundSize = "cover";
-		cardi.style.cssFloat = "left";
-		//cardi.addEventListener("click",addToBook(card_data[i].name))
-		selectionArea.appendChild(cardi);
+	if (card_data[i].type === "Creature") 
+	{
+	    if (card_data[i].rarity === "E") 
+	    {
+	        imageLocation = "evo";
+	    } 
+	    else 
+	    {
+	        imageLocation = card_data[i].attribute.toLowerCase();
+	    }
+	} 
+	else if (card_data[i].type === "Spell") 
+	{
+	    imageLocation = "./spells/";
+	} 
+	else if (card_data[i].type === "Item") 
+	{
+	    imageLocation = "./items/";
+	}
+	const link = "./" + imageLocation + "/" + cardName + ".jpg";
+	card.style.backgroundImage = 'url(' + link + ')';
+
+	card.addEventListener("click", function(){addToBook(card_data[i].name)},false);
+	selectionArea.appendChild(card);
 	}
 }
 function selectCreatureCategory(creatureAttribute)

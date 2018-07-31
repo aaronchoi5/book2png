@@ -27,12 +27,13 @@ div.editBookArea{
     height: 560px;
     overflow: scroll;
 }
-div.card{
+.card{
 	
 	background-size: cover; 
-    width: 77px;
+    width: 76px;
     height: 97px;
     margin: 2px;
+    float: left;
 }
 .butt {
 	font-size: .825em;
