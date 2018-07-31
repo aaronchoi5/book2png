@@ -104,38 +104,70 @@ function selectAll()
 	selectionArea.appendChild(card);
 	}
 }
-function selectCreatureCategory(creatureAttribute)
+
+function cardCreation(cardInfo)
+{
+	const card = document.createElement('div');
+	const selectionArea = document.querySelector(".cardSelectionArea");
+	card.classList.add("card");
+	const cardName = cardInfo.name.toLowerCase().replace(/[^a-z0-9+]+/gi, '');
+	let imageLocation = "";
+
+	if (cardInfo.type === "Creature") 
+	{
+	    if (cardInfo.rarity === "E") 
+	    {
+	        imageLocation = "evo";
+	    } 
+	    else 
+	    {
+	        imageLocation = cardInfo.attribute.toLowerCase();
+	    }
+	} 
+	else if (cardInfo.type === "Spell") 
+	{
+	    imageLocation = "spells";
+	} 
+	else if (cardInfo.type === "Item") 
+	{
+	    imageLocation = "items";
+	}
+	const link = "./" + imageLocation + "/" + cardName + ".jpg";
+	card.style.backgroundImage = 'url(' + link + ')';
+
+	card.addEventListener("click", function(){addToBook(cardInfo.name)},false);
+	selectionArea.appendChild(card);
+}
+function selectFilter()
 {
 	card_data = []
 	const selectionArea = document.querySelector(".cardSelectionArea");
 	selectionArea.innerHTML = '';
 	for( let i = 0; i < data.length; i++)
 	{
-		if(data[i].attribute == creatureAttribute && data[i].type == "Creature")
+		if(arguments[0] == data[i].type)
 		{
-			const card = document.createElement('div');
-			card.classList.add("card");
-			const cardName = data[i].name.toLowerCase().replace(/[^a-z0-9+]+/gi, '');
-			let imageLocation = "";
-
-			const link = "./" + data[i].attribute.toLowerCase() + "/" + cardName + ".jpg";
-			card.style.backgroundImage = 'url(' + link + ')';
-
-			card.addEventListener("click", function(){addToBook(data[i].name)},false);
-			selectionArea.appendChild(card);
-			card_data.push(card);
+			if(arguments[1] === undefined )
+			{
+				cardCreation(data[i]);
+				card_data.push(data[i]);
+			}
+			else if(arguments[0] == "Creature" && arguments[1] == data[i].attribute)
+			{
+				cardCreation(data[i]);
+				card_data.push(data[i]);
+			}
+			else if( arguments[1] == data[i].classification)
+			{
+				cardCreation(data[i]);
+				card_data.push(data[i]);
+			}
 		}
-	}
-
-
-}
-function selectCreatureItemOrSpellCategory(type)
-{
-	for( let i = 0; i < card_data.length; i++)
-	{
-		if(card_data[i].type == type)
+		else if(arguments[0] === undefined)
 		{
-			console.log(card_data[i]);
+			cardCreation(data[i]);
+			card_data.push(data[i]);
 		}
+		
 	}
 }

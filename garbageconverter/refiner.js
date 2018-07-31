@@ -12,14 +12,11 @@ const cardsList = [];
 for (let key in cardsAll) {
     cardsList.push(cardsAll[key]);
 }
-
-/* Mapping all the cards into a list of JSON-likes. */
-const cardsJSON = cardsList.map((cardData) => {
-    const matches = cardData.name.match(/(\d*)\)\W+(.*)/);
-    var rarity = "N"
-    var type = ""
-    var attribute = ""
-    switch(cardData.rarelity)
+/* Converting all the numbers to meaningful values */
+function returnCardRarity(cardRarity)
+{
+    var rarity = "N";
+    switch(cardRarity)
     {
         case 1:
             rarity = "N";
@@ -34,7 +31,12 @@ const cardsJSON = cardsList.map((cardData) => {
             rarity = "E";
             break;
     }
-    switch(cardData.type)
+    return rarity
+}
+function returnCardType(cardType)
+{
+    var type = "";
+    switch(cardType)
     {
         case 1:
             type = "Creature";
@@ -45,9 +47,13 @@ const cardsJSON = cardsList.map((cardData) => {
         case 3:
             type = "Spell";
             break;
-        
     }
-    switch(cardData.attribute)
+    return type;
+}
+function returnCardAttribute(cardAttribute)
+{
+    var attribute = "";
+    switch(cardAttribute)
     {
         case 1:
             attribute = "Neutral";
@@ -65,17 +71,157 @@ const cardsJSON = cardsList.map((cardData) => {
             attribute = "Air";
             break
     }
+    return attribute;
+}
+function returnClassification(cardData)
+{
+    var classification = ""
+    if(cardData.type == 1)
+    {
+        classification = "Normal"
+    }
+    else if( cardData.type == 2)
+    {
+        switch(cardData.kind)
+        {
+            case 1:
+                classification = "Weapon";
+                break;
+            case 2:
+                classification = "Armor";
+                break;
+            case 3:
+                classification = "Tool";
+                break;
+            case 4:
+                classification = "Scroll";
+                break;
+        }
+    }
+    else if(cardData.type == 3)
+    {
+        switch(cardData.kind)
+        {
+            case 1:
+                classification = "Instant";
+                break;
+            case 2:
+                classification = "Multi-Instant";
+                break;
+            case 3:
+                classification = "Enchant";
+                break;
+            case 4:
+                classification = "Multi-Enchant";
+                break;
+            case 5:
+                classification = "Global";
+                break;
+        }
+    }
+    return classification;
+}
+function returnCostOther(costNum)
+{
+    var costOther = "";
+    while(costNum % 10 != 0)
+    {
+        switch(costNum % 10)
+        {
+            case 1:
+                costOther += "N,";
+                break;
+            case 2:
+                costOther += "R,";
+                break;
+            case 3:
+                costOther += "B,";
+                break;
+            case 4:
+                costOther += "G,";
+                break;
+            case 5:
+                costOther += "Y,";
+                break;
+            case 6:
+                costOther += "+[],";
+                break;
+        }
+        costNum = Math.floor(costNum / 10);
+    }
+    return costOther;
+}
+//uses the costOtherList
+function returnPlaceRestriction(placeRestNum)
+{
+    var placeRestriction = "";
+    switch(placeRestNum)
+        {
+            case 0:
+                placeRestriction = "";
+                break;
+            case 1:
+                placeRestriction = "N,";
+                break;
+            case 2:
+                placeRestriction = "R,";
+                break;
+            case 3:
+                placeRestriction = "B,";
+                break;
+            case 4:
+                placeRestriction = "G,";
+                break;
+            case 5:
+                placeRestriction = "Y,"
+                break;
+            case 6:
+                placeRestriction = "+[]"
+                break;
+        }
+        return placeRestriction;
+}
+function returnItemRestriction(itemRestrictionNum)
+{
+    var itemRestriction = "";
+    while(itemRestrictionNum % 10 != 0)
+    {
+        switch(itemRestrictionNum % 10)
+        {
+            case 1:
+                itemRestriction += "Weapon,";
+                break;
+            case 2:
+                itemRestriction += "Armor,";
+                break;
+            case 3:
+                itemRestriction += "Tool,";
+                break;
+            case 4:
+                itemRestriction += "Scroll,";
+                break;
+        }
+        itemRestrictionNum = Math.floor(itemRestrictionNum / 10);
+    }
+    
+    return itemRestriction;
+}
+/* Mapping all the cards into a list of JSON-likes. */
+const cardsJSON = cardsList.map((cardData) => {
+    const matches = cardData.name.match(/(\d*)\)\W+(.*)/);
+    
     return {
         legacyId: cardData.num,
         num: parseInt(matches[1]),
         name: matches[2],
-        rarity: rarity,
-        type: type,
+        rarity: returnCardRarity(cardData.rarelity),
+        type: returnCardType(cardData.type),
+        classification: returnClassification(cardData),
         costValue: cardData.costValue,
-        costOther: cardData.costOther,
-        attribute: attribute,
-        placeRestriction: cardData.placeRestriction,
-        itemRestriction: cardData.itemRestriction,
+        costOther: returnCostOther(cardData.costOther),
+        attribute: returnCardAttribute(cardData.attribute),
+        placeRestriction: returnPlaceRestriction(cardData.placeRestriction),
+        itemRestriction: returnItemRestriction(cardData.itemRestriction),
         st: cardData.st,
         mhp: cardData.mhp,
         abilityText: cardData.abilityText

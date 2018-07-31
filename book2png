@@ -10,25 +10,26 @@
 
 <body>
     <div class="flex-container">
-        <a href=# class="butt" onclick="selectCreatureItemOrSpellCategory('Creature')">Creatures</a>
-        <a href=# class="butt" onclick="selectCreatureCategory('Neutral')">Neutral</a>
-        <a href=# class="butt" onclick="selectCreatureCategory('Fire')">Fire</a>
-        <a href=# class="butt" onclick="selectCreatureCategory('Water')">Water</a>
-        <a href=# class="butt" onclick="selectCreatureCategory('Earth')">Earth</a>
-        <a href=# class="butt" onclick="selectCreatureCategory('Air')">Air</a>
-        <a href=# class="butt" onclick="selectCreatureItemOrSpellCategory('Item')">Items</a>
-        <a href=# class="butt">Weapons</a>
-        <a href=# class="butt">Armor</a>
-        <a href=# class="butt">Tools</a>
-        <a href=# class="butt">Scrolls</a>
+        <a href=# class="butt" onclick="selectFilter('Creature')">Creatures</a>
+        <a href=# class="butt" onclick="selectFilter('Creature','Neutral')">Neutral</a>
+        <a href=# class="butt" onclick="selectFilter('Creature','Fire')">Fire</a>
+        <a href=# class="butt" onclick="selectFilter('Creature','Water')">Water</a>
+        <a href=# class="butt" onclick="selectFilter('Creature','Earth')">Earth</a>
+        <a href=# class="butt" onclick="selectFilter('Creature','Air')">Air</a>
+        <a href=# class="butt" onclick="selectFilter('Item')">Items</a>
+        <a href=# class="butt" onclick="selectFilter('Item','Weapon')">Weapons</a>
+        <a href=# class="butt" onclick="selectFilter('Item','Armor')">Armor</a>
+        <a href=# class="butt" onclick="selectFilter('Item','Tool')">Tools</a>
+        <a href=# class="butt" onclick="selectFilter('Item','Scroll')">Scrolls</a>
     </div>
     <div class="flex-container">
-        <a href=# class="butt" onclick="selectCreatureItemOrSpellCategory('Spell')">Spells</a>
-        <a href=# class="butt">Instant</a>
-        <a href=# class="butt">Multi-Instant</a>
-        <a href=# class="butt">Enchant</a>
-        <a href=# class="butt">Multi-Enchant</a>
-        <a href=# class="butt">Global</a>
+        <a href=# class="butt" onclick="selectFilter()">All</a>
+        <a href=# class="butt" onclick="selectFilter('Spell')">Spells</a>
+        <a href=# class="butt" onclick="selectFilter('Spell','Instant')">Instant</a>
+        <a href=# class="butt" onclick="selectFilter('Spell','Multi-Instant')">Multi-Instant</a>
+        <a href=# class="butt" onclick="selectFilter('Spell','Enchant')">Enchant</a>
+        <a href=# class="butt" onclick="selectFilter('Spell','Multi-Enchant')">Multi-Enchant</a>
+        <a href=# class="butt" onclick="selectFilter('Spell','Global')">Global</a>
         <input type="search" placeholder="Search..">
     </div>
     <div style="float:left;" class="cardSelectionArea">
@@ -36,7 +37,7 @@
     <div style="float:left;" class="editBookArea">
     </div>
     <script type="text/javascript">
-    window.onload = selectAll();
+        window.onload = selectFilter();
     </script>
 </body>
 
