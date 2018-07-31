@@ -5,25 +5,25 @@
     <link rel="stylesheet" href="book2png.css">
     <script type="text/javascript" src="card_data.json"></script>
     <script src="fetch.js"></script>
-
+    
 </head>
 
 <body>
     <div class="flex-container">
-        <a href=# class="butt">Creatures</a>
+        <a href=# class="butt" onclick="selectCreatureItemOrSpellCategory('Creature')">Creatures</a>
         <a href=# class="butt" onclick="selectCreatureCategory('Neutral')">Neutral</a>
         <a href=# class="butt" onclick="selectCreatureCategory('Fire')">Fire</a>
         <a href=# class="butt" onclick="selectCreatureCategory('Water')">Water</a>
         <a href=# class="butt" onclick="selectCreatureCategory('Earth')">Earth</a>
         <a href=# class="butt" onclick="selectCreatureCategory('Air')">Air</a>
-        <a href=# class="butt" onclick="selectItemOrSpellCategory('Item')">Items</a>
+        <a href=# class="butt" onclick="selectCreatureItemOrSpellCategory('Item')">Items</a>
         <a href=# class="butt">Weapons</a>
         <a href=# class="butt">Armor</a>
         <a href=# class="butt">Tools</a>
         <a href=# class="butt">Scrolls</a>
     </div>
     <div class="flex-container">
-        <a href=# class="butt" onclick="selectItemOrSpellCategory('Spell')">Spells</a>
+        <a href=# class="butt" onclick="selectCreatureItemOrSpellCategory('Spell')">Spells</a>
         <a href=# class="butt">Instant</a>
         <a href=# class="butt">Multi-Instant</a>
         <a href=# class="butt">Enchant</a>
@@ -31,6 +31,14 @@
         <a href=# class="butt">Global</a>
         <input type="search" placeholder="Search..">
     </div>
+    <div style="float:left;" class="cardSelectionArea">
+    </div>
+    </div>
+    <div style="float:left;" class="editBookArea">
+    </div>
+    <script type="text/javascript">
+    window.onload = selectAll();
+    </script>
 </body>
 
 </html>
