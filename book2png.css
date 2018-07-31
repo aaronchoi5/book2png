@@ -17,13 +17,13 @@ body{
 }
 div.cardSelectionArea{
 	background-color: lightblue;
-    width: 830px;
+    width: 820px;
     height: 560px;
     overflow: scroll;
 }
 div.editBookArea{
 	background-color: grey;
-    width: 230px;
+    width: 235px;
     height: 560px;
     overflow: scroll;
 }
@@ -36,7 +36,7 @@ div.editBookArea{
     float: left;
 }
 .name{
-	width:  190px;
+	width:  200px;
 	height: 20px;
 	background-color: white;
 	border-radius: 2px;
@@ -46,15 +46,16 @@ div.editBookArea{
 	
 }
 .count{
-	width: 20;
-	height:20;
 
+	margin: 0px;
 	background-color: lime;
 	border-radius: 2px;
 	border-style: solid;
 	border-color: black;
+	border-left-width: 0;
 	float: left;
 	text-align: center;
+	flex: 1 1 0px;
 }
 .butt {
 	font-size: .825em;
