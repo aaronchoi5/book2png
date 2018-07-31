@@ -4,13 +4,13 @@ body{
 }
 .flex-container{
 	display:flex;
-	margin-top: 5px
 }
 .flex-container a {
 	flex: 1 1 0px;
 	text-align: center;
 	margin-bottom: 5px
 }
+
 
 .flex-container a:not(:first-child){
 	margin-left:5px;
@@ -23,7 +23,7 @@ div.cardSelectionArea{
 }
 div.editBookArea{
 	background-color: grey;
-    width: 200px;
+    width: 230px;
     height: 560px;
     overflow: scroll;
 }
@@ -34,6 +34,27 @@ div.editBookArea{
     height: 97px;
     margin: 2px;
     float: left;
+}
+.name{
+	width:  190px;
+	height: 20px;
+	background-color: white;
+	border-radius: 2px;
+	border-style: solid;
+	border-color: black;
+	float: left;
+	
+}
+.count{
+	width: 20;
+	height:20;
+
+	background-color: lime;
+	border-radius: 2px;
+	border-style: solid;
+	border-color: black;
+	float: left;
+	text-align: center;
 }
 .butt {
 	font-size: .825em;

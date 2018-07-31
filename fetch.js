@@ -1,18 +1,44 @@
 var card_data = data;
+var slot_map = new Map();
+var bookCounter = 0;
 function addToBook(cardName)
 {
-	var bookArea = document.querySelector(".editBookArea");
-	var card = document.createElement('div')
-	card.style.width = "180px";
-	card.style.height = "45px";
-	card.style.backgroundColor = "white";
-	card.innerText = cardName;
-	card.style.border = " solid black"; 
-	bookArea.appendChild(card);
+	if(!slot_map.has(cardName) && bookCounter < 50)
+	{
+		slot_map.set(cardName, 1);
+		const bookArea = document.querySelector(".editBookArea");
+
+		const wrapper = document.createElement('div');
+		wrapper.setAttribute("class", "flex-container");
+		wrapper.setAttribute("id", cardName);
+		const slot = document.createElement('div');
+		slot.classList.add("name");
+		slot.innerText = cardName;
+
+		const slotNum = document.createElement('div');
+		slotNum.classList.add("count");
+		slotNum.innerText = slot_map.get(cardName);
+
+		wrapper.appendChild(slot);
+		wrapper.appendChild(slotNum);
+
+		bookArea.appendChild(wrapper);
+		bookCounter++;
+	}
+	else if( slot_map.get(cardName) < 4 && bookCounter < 50)
+	{
+		var countElement = document.getElementById(cardName).getElementsByClassName("count")[0];
+		var updatedCount = parseInt(countElement.innerText);
+		updatedCount++;
+		countElement.innerText = updatedCount;
+		slot_map.set(cardName, updatedCount);
+		console.log(slot_map.get(cardName));
+		bookCounter++;
+	}
 }
 function selectAll()
 {
-	var selectionArea = document.querySelector(".cardSelectionArea");
+	const selectionArea = document.querySelector(".cardSelectionArea");
 	for( let i = 0; i < card_data.length; i++)
 	{	
 	const card = document.createElement('div');
