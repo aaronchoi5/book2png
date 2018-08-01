@@ -2,19 +2,7 @@ var card_data = [];
 var slot_map = new Map();
 var bookCounter = 0;
 
-//function magicSorter(cardNum, wrapper)
-//{
-//	const bookArea = document.querySelector(".editBookArea");
-//	const bookAreaChildren = document.querySelector(".editBookArea").childNodes;
-//	for(let i = 0; i < bookAreaChildren.length; i++)
-//	{
-//		if (parseInt(bookAreaChildren[i].id) > cardNum)
-//		{
-//			var insert = bookArea.insertBefore(wrapper, bookareaChildren[i]);
-//		}
-//	}
-//	//access parent get each child's id and compare data.num's get the one that's right after current num's and insert before
-//}
+
 function addToBook(cardName,cardNum)
 {
 	if(!slot_map.has(cardName) && bookCounter < 50)
@@ -39,7 +27,6 @@ function addToBook(cardName,cardNum)
 	
 		wrapper.addEventListener("click", function(){removeFromBook(cardName)},false);
 		bookArea.appendChild(wrapper);
-		//magicSorter(cardNum,wrapper);
 		bookCounter++;
 	}
 	else if( slot_map.get(cardName) < 4 && bookCounter < 50)
