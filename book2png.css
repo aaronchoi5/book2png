@@ -26,6 +26,8 @@ div.editBookArea{
     width: 235px;
     height: 560px;
     overflow: scroll;
+    display:flex;
+    flex-direction: column;
 }
 .card{
 	
@@ -46,6 +48,7 @@ div.editBookArea{
 	
 }
 .count{
+	flex: 1 1 0px;
 
 	margin: 0px;
 	background-color: lime;
@@ -55,7 +58,6 @@ div.editBookArea{
 	border-left-width: 0;
 	float: left;
 	text-align: center;
-	flex: 1 1 0px;
 }
 .butt {
 	font-size: .825em;

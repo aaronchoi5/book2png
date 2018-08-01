@@ -32,13 +32,9 @@
         <a href=# class="butt" onclick="selectFilter('Spell','Global')">Global</a>
         <input type="search" placeholder="Search..">
     </div>
-    <div style="float:left;" class="cardSelectionArea">
-    </div>
-    <div style="float:left;" class="editBookArea">
-    </div>
-    <script type="text/javascript">
-        window.onload = selectFilter();
-    </script>
+    <div style="float:left;" class="cardSelectionArea"></div>
+    <div style="float:left;" class="editBookArea"></div>
+    <script type="text/javascript">window.onload = selectFilter();</script>
 </body>
 
 </html>

@@ -2,7 +2,20 @@ var card_data = [];
 var slot_map = new Map();
 var bookCounter = 0;
 
-function addToBook(cardName)
+//function magicSorter(cardNum, wrapper)
+//{
+//	const bookArea = document.querySelector(".editBookArea");
+//	const bookAreaChildren = document.querySelector(".editBookArea").childNodes;
+//	for(let i = 0; i < bookAreaChildren.length; i++)
+//	{
+//		if (parseInt(bookAreaChildren[i].id) > cardNum)
+//		{
+//			var insert = bookArea.insertBefore(wrapper, bookareaChildren[i]);
+//		}
+//	}
+//	//access parent get each child's id and compare data.num's get the one that's right after current num's and insert before
+//}
+function addToBook(cardName,cardNum)
 {
 	if(!slot_map.has(cardName) && bookCounter < 50)
 	{
@@ -12,6 +25,7 @@ function addToBook(cardName)
 		const wrapper = document.createElement('div');
 		wrapper.setAttribute("class", "flex-container");
 		wrapper.setAttribute("id", cardName);
+		wrapper.style.order = cardNum;
 		const slot = document.createElement('div');
 		slot.classList.add("name");
 		slot.innerText = cardName;
@@ -25,6 +39,7 @@ function addToBook(cardName)
 	
 		wrapper.addEventListener("click", function(){removeFromBook(cardName)},false);
 		bookArea.appendChild(wrapper);
+		//magicSorter(cardNum,wrapper);
 		bookCounter++;
 	}
 	else if( slot_map.get(cardName) < 4 && bookCounter < 50)
@@ -43,7 +58,6 @@ function removeFromBook(cardName)
 		const bookArea = document.querySelector(".editBookArea");
 		const slotWrapper = document.getElementById(cardName);
 		bookArea.removeChild(slotWrapper);
-		//slotWrapper = null;
 		slot_map.delete(cardName);
 	}
 	else
@@ -66,43 +80,6 @@ function editSlotCount(cardName, addOrSubtract)
 	}
 	countElement.innerText = updatedCount;
 	slot_map.set(cardName, updatedCount);
-}
-function selectAll()
-{
-	card_data = data;
-	const selectionArea = document.querySelector(".cardSelectionArea");
-	for( let i = 0; i < card_data.length; i++)
-	{	
-	const card = document.createElement('div');
-	card.classList.add("card");
-	const cardName = card_data[i].name.toLowerCase().replace(/[^a-z0-9+]+/gi, '');
-	let imageLocation = "";
-
-	if (card_data[i].type === "Creature") 
-	{
-	    if (card_data[i].rarity === "E") 
-	    {
-	        imageLocation = "evo";
-	    } 
-	    else 
-	    {
-	        imageLocation = card_data[i].attribute.toLowerCase();
-	    }
-	} 
-	else if (card_data[i].type === "Spell") 
-	{
-	    imageLocation = "spells";
-	} 
-	else if (card_data[i].type === "Item") 
-	{
-	    imageLocation = "items";
-	}
-	const link = "./" + imageLocation + "/" + cardName + ".jpg";
-	card.style.backgroundImage = 'url(' + link + ')';
-
-	card.addEventListener("click", function(){addToBook(card_data[i].name)},false);
-	selectionArea.appendChild(card);
-	}
 }
 
 function cardCreation(cardInfo)
@@ -135,7 +112,7 @@ function cardCreation(cardInfo)
 	const link = "./" + imageLocation + "/" + cardName + ".jpg";
 	card.style.backgroundImage = 'url(' + link + ')';
 
-	card.addEventListener("click", function(){addToBook(cardInfo.name)},false);
+	card.addEventListener("click", function(){addToBook(cardInfo.name, cardInfo.num)},false);
 	selectionArea.appendChild(card);
 }
 function selectFilter()
@@ -168,6 +145,5 @@ function selectFilter()
 			cardCreation(data[i]);
 			card_data.push(data[i]);
 		}
-		
 	}
 }
